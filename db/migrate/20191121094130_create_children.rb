@@ -1,13 +1,13 @@
 class CreateChildren < ActiveRecord::Migration[5.2]
   def change
     create_table :children do |t|
-      t.string :name
-      t.string :gender
-      t.integer :age
+      t.string :name, null: false
+      t.string :gender, null: false
+      t.integer :age, null: false
       t.text :allergy
       t.text :personality
-      t.integer :user_id
-      t.integer :request_id
+      t.references :user_id, foreign_key: true
+      t.references :request_id, foreign_key: true
       t.timestamps
     end
   end
