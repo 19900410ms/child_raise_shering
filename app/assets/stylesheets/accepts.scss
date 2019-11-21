@@ -1,3 +1,8 @@
-// Place all the styles related to the accepts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.accept {
+  width: 70%;
+  background-color: aquamarine;
+  height: calc(100vh - 140px);
+  margin: 10px auto;
+  text-align: center;
+  overflow: scroll;
+}
