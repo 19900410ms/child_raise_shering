@@ -1,0 +1,18 @@
+.sign {
+  width: 70%;
+  height: calc(100vh - 90px);
+  background-color: lightgreen;
+  margin: 10px auto 10px auto;  
+  &__in {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .new_user {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .sessions {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
