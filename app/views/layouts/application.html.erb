@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ChildRaiseShering</title>
+    <title>ChildRaiseSharing</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,19 @@
   </head>
 
   <body>
+    
+    <header class="header">
+      <div class="header__title">
+        Child Raise Sharing
+      </div>
+      <div class="header__info">
+        <%= link_to "マイページ", "#", class: "header__info__link" %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__info__link" %>
+        <%= link_to "依頼する", "#", class: "header__info__link" %>
+        <%= link_to "受託する", "#", class: "header__info__link" %>
+      </div>
+    </header>
+    
     <%= yield %>
   </body>
 </html>
