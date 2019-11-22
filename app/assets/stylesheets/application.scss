@@ -10,7 +10,8 @@
 .header {
   width: 100vw;
   height: 70px;
-  background-color: #FFEEFF;
+  background: image-url("header.jpg");
+  background-size: cover;
   line-height: 70px;
   display: flex;
   justify-content: space-between;
@@ -30,7 +31,9 @@
 footer {
   width: 100vw;
   height: 50px;
-  background-color: #FFD5EC;
+  font-size: 20px;
+  background: image-url("footer.jpg");
+  background-size: cover;
   line-height: 50px;
   text-align: center;
 }

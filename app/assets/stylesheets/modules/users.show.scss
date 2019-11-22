@@ -1,0 +1,17 @@
+.user-info {
+  width: 100vw;
+  height: calc(100vh - 120px);
+  @include display-flex;
+  justify-content: space-around;
+  &__left {
+    color: white;
+    font-size: 50px;
+    background-color: white;
+    margin: 0 30px;
+  }
+  &__right {
+    color: white;
+    background-color: white;
+    margin: 0 30px;
+  }
+}
