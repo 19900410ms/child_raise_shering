@@ -1,5 +1,8 @@
 class ChildrenController < ApplicationController
 
+  def new
+  end
+  
   def create
     @child = Child.create(child_params)
   end
