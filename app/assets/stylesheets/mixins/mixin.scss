@@ -1,0 +1,9 @@
+@mixin contents {
+  width: 100%;
+  background: image-url("sample.jpg");
+  background-size: cover;
+  height: calc(100vh - 120px);
+  margin: 0 auto;
+  text-align: center;
+  overflow: scroll;
+}

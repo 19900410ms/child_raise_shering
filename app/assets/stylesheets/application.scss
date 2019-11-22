@@ -1,4 +1,36 @@
+@import "mixins/mixin";
 @import "modules/reset.scss";
 @import "modules/devise.scss";
-@import "modules/header.scss";
+@import "modules/users.show.scss";
 @import "accepts.scss";
+@import "requests.scss";
+@import "comments.scss";
+@import "users.scss";
+
+.header {
+  width: 100vw;
+  height: 70px;
+  background-color: #FFEEFF;
+  line-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  &__title {
+    color: darkblue;
+    font-size: 25px;
+    margin-left: 20px;
+  }
+  &__info {
+    &__link {
+      text-decoration: none;
+      caret-color: black;
+      margin-right: 10px;
+    }
+  }
+}
+footer {
+  width: 100vw;
+  height: 50px;
+  background-color: #FFD5EC;
+  line-height: 50px;
+  text-align: center;
+}
