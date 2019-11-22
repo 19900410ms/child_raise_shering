@@ -1,10 +1,5 @@
 .request {
-  width: 70%;
-  background-color: aquamarine;
-  height: calc(100vh - 140px);
-  margin: 10px auto;
-  text-align: center;
-  overflow: scroll;
+  @include contents;
   &__title {
     font-size:  24px;
     margin: 20px 0;

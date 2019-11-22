@@ -48,7 +48,7 @@ Things you may want to cover:
 |date|date|null: false|
 |time|integer|null: false|
 |capacity|integer|null: false|
-|age_range|inetger||
+|age_range|string||
 |beg|text||
 |user_id|reference|null: false, foreign_key: true|
 

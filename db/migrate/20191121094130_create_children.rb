@@ -6,8 +6,8 @@ class CreateChildren < ActiveRecord::Migration[5.2]
       t.integer :age, null: false
       t.text :allergy
       t.text :personality
-      t.references :user_id, foreign_key: true
-      t.references :request_id, foreign_key: true
+      t.references :user, foreign_key: true
+      t.references :request, foreign_key: true
       t.timestamps
     end
   end
