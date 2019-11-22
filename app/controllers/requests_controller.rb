@@ -8,15 +8,17 @@ class RequestsController < ApplicationController
   end
 
   def create
-    request.create(request_params)
+    @request = Request.create(request_params)
+    redirect_to root_path
   end
 
   def destroy
+    request.destroy
   end
 
   private
   def request_params
-
+    params.require(:request).permit(:date, :time, :mention).merge(user_id: current_user.id)
   end
-  
+
 end

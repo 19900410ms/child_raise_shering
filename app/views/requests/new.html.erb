@@ -4,6 +4,14 @@
       <h1 class="new_request__title">依頼日程</h1>
       <%= form.text_field :date, class: :"edit_user__box" %>
     </label>
-  <%= form.submit "送信", class: :"new_request__btn" %>
+    <label>
+      <h1 class="new_request__title">時間</h1>
+      <%= form.text_field :time, class: :"edit_user__box" %>
+    </label>
+    <label>
+      <h1 class="new_request__title">特記事項</h1>
+      <%= form.text_area :mention, class: :"edit_user__box" %>
+    </label>
+    <%= form.submit "送信", class: :"new_request__btn" %>
   <% end %>
 </div>
