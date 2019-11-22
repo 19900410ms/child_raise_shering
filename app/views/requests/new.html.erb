@@ -1,25 +1,9 @@
-  <div class="request">
-    <h1 class="request__title">依頼フォーム</h1>
-    <form>
-      <div class="request__form">
-        <label>
-          <div class="request__form__category">name</div>
-          <input>
-        </label>
-        <label>
-          <div class="request__form__category">email</div>
-          <input>
-        </label>
-        <label>
-          <div class="request__form__category">allergy</div>
-          <textarea></textarea>
-        </label>
-        <label>
-          <div class="request__form__category">date</div>
-          <input>
-        </label>
-      </div>
-      <input type="submit" value="確認画面へ">
-    </form>
-   
-  </div>
+<div class="make-request">
+  <%= form_for @request do |form| %>
+    <label>
+      <h1 class="new_request__title">依頼日程</h1>
+      <%= form.text_field :date, class: :"edit_user__box" %>
+    </label>
+  <%= form.submit "送信", class: :"new_request__btn" %>
+  <% end %>
+</div>

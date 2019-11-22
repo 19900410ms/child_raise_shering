@@ -1,17 +1,18 @@
 .user-info {
   width: 100vw;
   height: calc(100vh - 120px);
-  @include display-flex;
+  background: image-url("footer.jpg");
+  background-size: cover;
+  
   justify-content: space-around;
-  &__left {
-    color: white;
-    font-size: 50px;
-    background-color: white;
-    margin: 0 30px;
-  }
-  &__right {
-    color: white;
-    background-color: white;
-    margin: 0 30px;
+  .edit_user {
+    margin-left: 20px;
+    &__title {
+      font-size: 18px;
+    }
+    &__box {
+      line-height: 30px;
+      width: 25%;
+    }
   }
 }

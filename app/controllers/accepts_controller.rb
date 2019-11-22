@@ -4,6 +4,7 @@ class AcceptsController < ApplicationController
   end
 
   def new
+    @accept = Accept.new
   end
 
   def create
