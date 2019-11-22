@@ -1,12 +1,15 @@
 .sign {
   @include contents;
-  &__in {
-   
+  .field {
+    margin: 10px 0;
   }
-  .new_user {
-
+  .actions {
+    margin-top: 20px;
+    &__btn {
+      font-size: 15px;
+    }
   }
   .sessions {
-
+    margin: 10px 0;
   }
 }

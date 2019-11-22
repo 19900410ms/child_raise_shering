@@ -1,3 +1,8 @@
 .accept {
   @include contents;
 }
+
+.btn {
+  display: block;
+  margin: 0 auto;
+}
