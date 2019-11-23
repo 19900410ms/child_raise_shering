@@ -50,35 +50,42 @@
           <h1 class="user-info__title__description__div">性別</h1>
           <h1 class="user-info__title__description__info"><%= @user.gender %></h1>
         </div>  
-    <% end %>
-  </div>
-<div class="user-offer">
-  <h1 class="offer__title">受付中</h1>
-  <div class="offer__list">
-    <% @accepts.each do |accept| %>
-    <div class="offer__list__block">
-      <div class="offer__list__block__left">
-        <li>ニックネーム：<br><%= link_to accept.user.nickname, user_path(accept.user), class: "offer__list__link" %></li>
-        <li>地域：<%= accept.user.region %></li>
-        <li>性別：<%= accept.user.gender %></li>
-        <% if current_user.id == @user.id && user_signed_in? %>
-          <%= link_to "編集", "/requests/#{current_user.id}/edit", class: :"offer__list__block__left__btn" %>
-          <%= link_to "削除", user_path(current_user.id), method: :delete, class: :"offer__list__block__left__btn" %>
-        <% else %>
-          <%= link_to "依頼する", new_request_url, class: :"offer__list__block__left__btn" %>
-        <% end %>
+      <% end %>
+    </div>
+  <div class="user-offer">
+    <h1 class="offer__title">受付中</h1>
+    <div class="offer__list">
+      <% @accepts.each do |accept| %>
+      <div class="offer__list__block">
+        <div class="offer__list__block__left">
+          <li>ニックネーム：<br><%= link_to accept.user.nickname, user_path(accept.user), class: "offer__list__link" %></li>
+          <li>地域：<%= accept.user.region %></li>
+          <li>性別：<%= accept.user.gender %></li>
+          <% if current_user.id == @user.id && user_signed_in? %>
+            <%= link_to "編集", "/requests/#{current_user.id}/edit", class: :"offer__list__block__left__btn" %>
+            <%= link_to "削除", user_path(current_user.id), method: :delete, class: :"offer__list__block__left__btn" %>
+          <% else %>
+            <%= link_to "依頼する", new_request_url, class: :"offer__list__block__left__btn" %>
+          <% end %>
+        </div>
+        <div class="offer__list__block__right">
+          <li>受付日程：<%= accept.date %></li>
+          <li>時間：<%= accept.time %></li>
+          <li>可能人数：<%= accept.capacity %></li>
+          <li>預かり可能年齢：<%= accept.age_range %></li>
+          <li>備考：<%= simple_format accept.beg %></li>
+        </div>
       </div>
-      <div class="offer__list__block__right">
-        <li>受付日程：<%= accept.date %></li>
-        <li>時間：<%= accept.time %></li>
-        <li>可能人数：<%= accept.capacity %></li>
-        <li>預かり可能年齢：<%= accept.age_range %></li>
-        <li>備考：<%= simple_format accept.beg %></li>
-        
+      <% end %>
+    </div>
+  </div>
+  <div class="user-request">
+    <h1 class="user-request__title">依頼中</h1>
+    <div class="user-request__descript">
+      
+      <div class="user-request__descript__date">
       </div>
       
-    </div>
-    <% end %>
     </div>
   </div>
 </div>

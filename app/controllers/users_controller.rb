@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @accepts = Accept.includes(:user)
+    @requests = Request.includes(:user)
   end
 
   def edit
