@@ -1,24 +1,25 @@
 <div class="accept">
+  <h1 class="accept__title">受託フォーム</h1>
   <%= form_for @accept do |form| %>
     <label>
-      <h1 class="edit_user__title">受託日程</h1>
-      <%= form.text_field :date, class: :"edit_user__box" %>
+      <h1 class="new_accept__title">受託日程</h1>
+      <%= form.text_field :date, class: :"new_accept__box", placeholder: :"例）2019-12-3" %>
     </label>
     <label>
-      <h1 class="edit_user__title">時間</h1>
-      <%= form.text_field :time, class: :"edit_user__box" %>
+      <h1 class="new_accept__title">受託時間</h1>
+      <%= form.text_field :time, class: :"new_accept__box", placeholder: :"例）8:30 ~ 19:00" %>
     </label>
     <label>
-      <h1 class="edit_user__title">可能人数</h1>
-      <%= form.text_field :capacity, class: :"edit_user__box" %>
+      <h1 class="new_accept__title">可能人数</h1>
+      <%= form.text_field :capacity, class: :"new_accept__box", placeholder: :"例）３人" %>
     </label>
     <label>
-      <h1 class="edit_user__title">預かり可能年齢</h1>
-      <%= form.text_field :age_range, class: :"edit_user__box" %>
+      <h1 class="new_accept__title">預かり可能年齢</h1>
+      <%= form.text_field :age_range, class: :"new_accept__box", placeholder: :"例）2歳 ~ 10歳まで" %>
     </label>
     <label>
-      <h1 class="edit_user__title">備考</h1>
-      <%= form.text_area :beg, class: :"edit_user__box" %>
+      <h1 class="new_accept__title">特記事項</h1>
+      <%= form.text_area :beg, class: :"new_accept__area", placeholder: :"ご依頼される方への要望等がありましたらご記入下さい。"  %>
     </label>
     <%= form.submit "送信", class: :"btn" %>
   <% end %>

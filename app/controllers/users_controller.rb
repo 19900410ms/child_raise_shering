@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @accepts = Accept.includes(:user)
+    @requests = Request.includes(:user)
   end
 
   def edit
@@ -11,6 +13,12 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     user.update(user_params)
+    redirect_to "/users/#{current_user.id}"
+  end
+
+  def destroy
+    accept = Accept.find(params[:id])
+    accept.destroy
     redirect_to "/users/#{current_user.id}"
   end
 

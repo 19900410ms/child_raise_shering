@@ -1,3 +1,44 @@
 .offer {
   @include contents;
+  opacity: 1;
+  &__title {
+    font-size: 20px;
+    margin: 20px 0;
+  }
+  &__list {
+    margin-top: 20px;
+    &__link {
+      text-decoration: none;
+    }
+    &__block {
+      height: auto;
+      width: 80%;
+      border: solid 1px white;
+      border-radius: 10px;
+      margin: 10px auto;
+      background: rgba(255,255,255,0.7);
+      display: flex;
+      font-size: 18px;
+      &__left {
+        width: 30%;
+        list-style: none;
+        margin-left: 10px;
+        text-align: left;
+        &__btn {
+          margin: 3px 5px 3px 0;
+          float: left;
+          border: solid 1px black;
+          text-decoration: none;
+          color: black;
+          padding: 2px 4px;
+        }
+      }
+      &__right {
+        widows: 70%;
+        list-style: none;
+        margin-left: 10px;
+        text-align: left;
+      }
+    }
+  }
 }

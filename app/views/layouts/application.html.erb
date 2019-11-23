@@ -16,7 +16,7 @@
         <%= link_to "Child Raise Sharing", "/", class: "header__info__link" %>
       </div>
       <div class="header__info">
-        <%= link_to "マイページ", "/users/#{current_user.id}", class: "header__info__link" %>
+        <%= link_to "マイページ", user_path(current_user.id), class: "header__info__link" %>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__info__link" %>
         <%= link_to "依頼する", new_request_url, class: "header__info__link" %>
         <%= link_to "受託する", new_accept_url, class: "header__info__link" %>
@@ -24,6 +24,7 @@
     </header>
     
     <%= yield %>
+    
     <footer>Life is not fair; get used to it.</footer>
   </body>
 </html>

@@ -1,12 +1,29 @@
 .make-request {
   @include contents;
+  &__title {
+    margin-top: 20px;
+    font-size: 20px;
+  }
   .new_request {
+    margin-top: 20px;
     &__title {
-
+      font-size: 18px;
+      margin: 5px auto;
+    }
+    &__box {
+      height: 30px;
+      width: 30%;
+    }
+    &__area {
+      height: 90px;
+      width: 30%;
+      resize: none;
+      margin-bottom: 20px;
     }
     &__btn {
       display: block;
       margin: 0 auto;
+      margin-bottom: 20px;
     }
   }
 }

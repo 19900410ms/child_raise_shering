@@ -1,16 +1,20 @@
 <div class="offer">
-  
-    <div class="offer__list">
-      <ul>
-        <li>accpet.user.nickname</li>
-        <li>accpet.user.region</li>
-        <li>accpet.user.gender</li>
-        <li>accpet.date</li>
-        <li>accpet.time</li>
-        <li>accpet.capacity</li>
-        <li>accpet.age_range</li>
-        <li>accpet.beg</li>
-      </ul>
+  <div class="offer__list">
+    <% @accepts.each do |accept| %>
+    <div class="offer__list__block">
+      <div class="offer__list__block__left">
+        <li>ニックネーム：<br><%= link_to accept.user.nickname, user_path(accept.user), class: "offer__list__link" %></li>
+        <li>地域：<%= accept.user.region %></li>
+        <li>性別：<%= accept.user.gender %></li>
+      </div>
+      <div class="offer__list__block__right">
+        <li>受付日程：<%= accept.date %></li>
+        <li>時間：<%= accept.time %></li>
+        <li>可能人数：<%= accept.capacity %></li>
+        <li>預かり可能年齢：<%= accept.age_range %></li>
+        <li>備考：<%= simple_format accept.beg %></li>
+      </div>
     </div>
-
+    <% end %>
+  </div>
 </div>
