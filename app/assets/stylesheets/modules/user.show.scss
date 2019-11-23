@@ -2,17 +2,34 @@
   width: 100vw;
   height: calc(100vh - 120px);
   background: image-url("footer.jpg");
+  margin: 0 auto;
   background-size: cover;
-  
-  justify-content: space-around;
+  text-align: center;
+  overflow: scroll;
+  &__title {
+    font-size: 20px;
+    margin: 20px 0;
+    &__description {
+      margin: 20px 0;
+      &__div {
+        font-size: 16px;
+      }
+      &__info {
+        font-size: 20px;
+      }
+    }
+  }
   .edit_user {
-    margin-left: 20px;
     &__title {
       font-size: 18px;
     }
     &__box {
-      line-height: 30px;
-      width: 25%;
+      width: 30%;
+      margin-bottom: 10px;
+    }
+    &__btn {
+      display: block;
+      margin: 10px auto;
     }
   }
 }

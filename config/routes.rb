@@ -5,7 +5,5 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :new, :create]
   end
   resources :accepts, only: [:index, :new, :create, :edit, :update, :destroy]
-  resources :requests, only: [:show, :new, :create, :destroy] do
-    resources :children, only: [:create]
-  end
+  resources :requests, only: [:show, :new, :create, :destroy]
 end
