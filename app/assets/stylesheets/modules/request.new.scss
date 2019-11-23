@@ -1,8 +1,8 @@
 .make-request {
   @include contents;
   .new_request {
+    margin-top: 20px;
     &__title {
-
     }
     &__btn {
       display: block;

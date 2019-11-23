@@ -5,7 +5,6 @@ class RequestsController < ApplicationController
 
   def new
     @request = Request.new
-    @child = Child.new
   end
 
   def create

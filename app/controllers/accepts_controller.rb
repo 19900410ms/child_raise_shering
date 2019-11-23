@@ -1,7 +1,7 @@
 class AcceptsController < ApplicationController
 
   def index
-    @accepts = Accept.includes(:user).order("date: :DESC")
+    @accepts = Accept.includes(:user).order("date ASC")
   end
 
   def new

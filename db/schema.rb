@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_030616) do
 
   create_table "accepts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date", null: false
-    t.integer "time", null: false
+    t.string "time", null: false
     t.integer "capacity", null: false
     t.string "age_range"
     t.text "beg"
@@ -22,20 +22,6 @@ ActiveRecord::Schema.define(version: 2019_11_22_030616) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_accepts_on_user_id"
-  end
-
-  create_table "children", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "gender", null: false
-    t.integer "age", null: false
-    t.text "allergy"
-    t.text "personality"
-    t.bigint "user_id"
-    t.bigint "request_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["request_id"], name: "index_children_on_request_id"
-    t.index ["user_id"], name: "index_children_on_user_id"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -48,7 +34,12 @@ ActiveRecord::Schema.define(version: 2019_11_22_030616) do
 
   create_table "requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date", null: false
-    t.integer "time", null: false
+    t.string "time", null: false
+    t.string "name", null: false
+    t.string "gender", null: false
+    t.integer "age", null: false
+    t.text "allergy"
+    t.text "personality"
     t.text "mention"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -75,8 +66,6 @@ ActiveRecord::Schema.define(version: 2019_11_22_030616) do
   end
 
   add_foreign_key "accepts", "users"
-  add_foreign_key "children", "requests"
-  add_foreign_key "children", "users"
   add_foreign_key "comments", "users"
   add_foreign_key "requests", "users"
 end

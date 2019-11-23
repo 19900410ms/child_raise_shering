@@ -1,3 +1,31 @@
 .offer {
   @include contents;
+  opacity: 1;
+  &__list {
+    margin-top: 20px;
+    &__link {
+      text-decoration: none;
+    }
+    &__block {
+      height: auto;
+      width: 80%;
+      border: solid 1px white;
+      margin: 10px auto;
+      background: rgba(255,255,255,0.7);
+      display: flex;
+      font-size: 18px;
+      &__left {
+        width: 30%;
+        list-style: none;
+        margin-left: 10px;
+        text-align: left;
+      }
+      &__right {
+        widows: 70%;
+        list-style: none;
+        margin-left: 10px;
+        text-align: left;
+      }
+    }
+  }
 }

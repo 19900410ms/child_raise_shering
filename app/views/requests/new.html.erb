@@ -2,7 +2,7 @@
   <%= form_for @request do |form| %>
     <label>
       <h1 class="new_request__title">依頼日程</h1>
-      <%= form.text_field :date, class: :"edit_user__box" %>
+      <%= form.text_field :date, class: :"edit_user__box", placeholder: :"例）2019-12-3" %>
     </label>
     <label>
       <h1 class="new_request__title">時間</h1>
@@ -10,7 +10,7 @@
     </label>
     <label>
       <h1 class="new_request__title">特記事項</h1>
-      <%= form.text_area :mention, class: :"edit_user__box" %>
+      <%= form.text_area :mention, class: :"edit_user__box", placeholder: :"お預けになる方へのお願い等" %>
     </label>
     <%= form.submit "送信", class: :"new_request__btn" %>
   <% end %>

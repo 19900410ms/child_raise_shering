@@ -1,5 +1,8 @@
 .accept {
   @include contents;
+  .new_accept {
+    margin-top: 20px;
+  }
 }
 
 .btn {
