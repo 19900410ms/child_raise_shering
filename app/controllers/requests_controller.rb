@@ -12,6 +12,16 @@ class RequestsController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @request = Request.find(params[:id])
+  end
+
+  def update
+    request = Request.find(params[:id])
+    request.update(request_params)
+    redirect_to "/requests/#{current_user.id}/edit"
+  end
+
   def destroy
     request.destroy
   end
