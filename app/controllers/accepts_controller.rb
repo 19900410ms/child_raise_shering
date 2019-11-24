@@ -14,9 +14,12 @@ class AcceptsController < ApplicationController
   end
 
   def edit
+    @accept = Accept.find(params[:id])
   end
 
   def update
+    accept = Accept.update(accept_params)
+    redirect_to user_path(current_user.id)
   end
 
   def destroy

@@ -62,7 +62,7 @@
           <li>地域：<%= accept.user.region %></li>
           <li>性別：<%= accept.user.gender %></li>
           <% if current_user.id == @user.id && user_signed_in? %>
-            <%= link_to "編集", "/requests/#{current_user.id}/edit", class: :"offer__list__block__left__btn" %>
+            <%= link_to "編集", "/accepts/#{current_user.id}/edit", class: :"offer__list__block__left__btn" %>
             <%= link_to "削除", user_path(current_user.id), method: :delete, class: :"offer__list__block__left__btn" %>
           <% else %>
             <%= link_to "依頼する", new_request_url, class: :"offer__list__block__left__btn" %>
