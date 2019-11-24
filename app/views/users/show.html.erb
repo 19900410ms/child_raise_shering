@@ -52,6 +52,7 @@
         </div>  
       <% end %>
     </div>
+
   <div class="user-offer">
     <h1 class="offer__title">受付中</h1>
     <div class="offer__list">
@@ -61,8 +62,8 @@
           <li>ニックネーム：<br><%= link_to accept.user.nickname, user_path(accept.user), class: "offer__list__link" %></li>
           <li>地域：<%= accept.user.region %></li>
           <li>性別：<%= accept.user.gender %></li>
-          <% if current_user.id == @user.id && user_signed_in? %>
-            <%= link_to "編集", "/accepts/#{current_user.id}/edit", class: :"offer__list__block__left__btn" %>
+          <% if current_user.id == accept.user.id && user_signed_in? %>
+            <%= link_to "編集", "/accepts/#{accept.id}/edit", class: :"offer__list__block__left__btn" %>
             <%= link_to "削除", user_path(current_user.id), method: :delete, class: :"offer__list__block__left__btn" %>
           <% else %>
             <%= link_to "依頼する", new_request_url, class: :"offer__list__block__left__btn" %>
@@ -79,14 +80,32 @@
       <% end %>
     </div>
   </div>
+
   <div class="user-request">
+    <% if current_user && user_signed_in? %>
     <h1 class="user-request__title">依頼中</h1>
     <div class="user-request__descript">
-      
-      <div class="user-request__descript__date">
+      <% @requests.each do |request| %>
+      <div class="user-request__descript__brock">
+        <div class="user-request__descript__brock__left">
+          <li>指名：<%= request.name %></li>
+          <li>年齢：<%= request.age %></li>
+          <li>性別：<%= request.gender %></li>
+            <%= link_to "編集", "/requests/#{request.id}/edit", class: :"user-request__descript__brock__left__btn" %>
+            <%= link_to "削除", user_path(current_user.id), method: :delete, class: :"user-request__descript__brock__left__btn" %>
+        </div>
+        <div class="user-request__descript__brock__right">
+          <li>依頼日程：<%= request.date %></li>
+          <li>依頼時間：<%= request.time %></li>
+          <li>アレルギー：<%= request.allergy %></li>
+          <li>性格：<%= request.personality %></li>
+          <li>特記事項：<%= request.mention %></li>
+        </div>
       </div>
-      
+      <% end %>
     </div>
+    <% end %>
   </div>
+
 </div>
 

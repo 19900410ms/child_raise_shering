@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @accepts = Accept.includes(:user)
-    @requests = Request.includes(:user)
+    @accepts = @user.accepts.order("date ASC")
+    @requests = @user.requests.order("date ASC")
   end
 
   def edit
@@ -17,9 +17,13 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    accept = Accept.find(params[:id])
-    accept.destroy
-    redirect_to "/users/#{current_user.id}"
+    accept = Accept.find_by(params[:user_id])
+    if current_user.id == accept.user_id
+      accept.destroy
+      redirect_to user_path(current_user.id)
+    else
+      redirect_to "/users/#{current_user.id}"
+    end
   end
 
   private

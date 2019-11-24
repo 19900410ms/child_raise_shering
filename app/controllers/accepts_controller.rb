@@ -18,7 +18,8 @@ class AcceptsController < ApplicationController
   end
 
   def update
-    accept = Accept.update(accept_params)
+    accept = Accept.find(params[:id])
+    accept.update(accept_params)
     redirect_to user_path(current_user.id)
   end
 

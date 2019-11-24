@@ -1,3 +1,76 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.user{
+  width: 100%;
+  background: image-url("sample1.jpg");
+  background-size: cover;
+  height: calc(100vh - 120px);
+  margin: 0 auto;
+  text-align: center;
+  overflow: scroll;
+  .user-info {
+    &__title {
+      font-size: 20px;
+      margin: 20px 0;
+      &__description {
+        margin: 20px 0;
+        &__div {
+          font-size: 16px;
+        }
+        &__info {
+          font-size: 20px;
+        }
+      }
+    }
+    .edit_user {
+      &__title {
+        font-size: 18px;
+      }
+      &__box {
+        width: 30%;
+        margin-bottom: 10px;
+      }
+      &__btn {
+        display: block;
+        margin: 10px auto;
+      }
+    }
+  }
+  .user-request {
+    &__title {
+      font-size: 20px;
+      margin: 20px 0;
+    }
+    &__descript {
+      margin-top: 20px;
+      &__brock {
+        height: auto;
+        width: 80%;
+        border: solid 1px white;
+        border-radius: 10px;
+        margin: 10px auto;
+        background: rgba(255,255,255,0.7);
+        display: flex;
+        font-size: 18px;
+        &__left {
+          width: 30%;
+          list-style: none;
+          margin-left: 10px;
+          text-align: left;
+          &__btn {
+            margin: 3px 5px 3px 0;
+            float: left;
+            border: solid 1px black;
+            text-decoration: none;
+            color: black;
+            padding: 2px 4px;
+          }
+        }
+        &__right {
+          widows: 70%;
+          list-style: none;
+          margin-left: 10px;
+          text-align: left;
+        }
+      }
+    }
+  }
+}
