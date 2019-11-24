@@ -24,6 +24,9 @@ class AcceptsController < ApplicationController
   end
 
   def destroy
+    accept = Accept.find(params[:id])
+    accept.destroy
+    redirect_to user_path(current_user.id)
   end
   
   private
