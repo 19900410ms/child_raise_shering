@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
 
+  before_action :set_user, only: [:show, :edit]
+
   def show
-    @user = User.find(params[:id])
-    @accepts = Accept.includes(:user)
-    @requests = Request.includes(:user)
+    @accepts = @user.accepts.order("date ASC")
+    @requests = @user.requests.order("date ASC")
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
@@ -17,14 +17,15 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    accept = Accept.find(params[:id])
-    accept.destroy
-    redirect_to "/users/#{current_user.id}"
   end
 
   private
   def user_params
     params.require(:user).permit(:name, :nickname, :email, :region, :address, :age, :gender)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
 end

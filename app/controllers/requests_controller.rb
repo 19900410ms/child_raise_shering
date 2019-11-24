@@ -19,11 +19,13 @@ class RequestsController < ApplicationController
   def update
     request = Request.find(params[:id])
     request.update(request_params)
-    redirect_to "/requests/#{current_user.id}/edit"
+    redirect_to user_path(current_user.id)
   end
 
   def destroy
+    request = Request.find(params[:id])
     request.destroy
+    redirect_to user_path(current_user.id)
   end
 
   private
