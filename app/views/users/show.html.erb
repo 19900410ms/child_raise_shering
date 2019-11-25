@@ -64,7 +64,7 @@
           <li>性別：<%= accept.user.gender %></li>
           <% if current_user.id == accept.user.id && user_signed_in? %>
             <%= link_to "編集", "/accepts/#{accept.id}/edit", class: :"offer__list__block__left__btn" %>
-            <%= link_to "削除", "/accepts/#{accept.id}", method: :delete, class: :"offer__list__block__left__btn" %>
+            <%= link_to "削除", "/accepts/#{accept.id}", method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: :"offer__list__block__left__btn" %>
           <% else %>
             <%= link_to "依頼する", new_request_url, class: :"offer__list__block__left__btn" %>
           <% end %>
@@ -93,7 +93,7 @@
           <li>性別：<%= request.gender %></li>
             <% if current_user.id == request.user.id && user_signed_in? %>
               <%= link_to "編集", "/requests/#{request.id}/edit", class: :"user-request__descript__brock__left__btn" %>
-              <%= link_to "削除", "/requests/#{request.id}", method: :delete, class: :"user-request__descript__brock__left__btn" %>
+              <%= link_to "削除", "/requests/#{request.id}", method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: :"user-request__descript__brock__left__btn" %>
             <% end %>
         </div>
         <div class="user-request__descript__brock__right">
