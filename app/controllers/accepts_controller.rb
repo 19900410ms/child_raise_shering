@@ -4,6 +4,10 @@ class AcceptsController < ApplicationController
     @accepts = Accept.includes(:user).order("date ASC")
   end
 
+  def show
+    @accept = Accept.find(params[:id])
+  end
+
   def new
     @accept = Accept.new
   end

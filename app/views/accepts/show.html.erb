@@ -1,0 +1,35 @@
+<div class="user">
+  <div class="user-info">
+    <h1 class="user-info__title">依頼先情報・受付内容確認</h1>
+    <div class="user-info__title__description">
+      <h1 class="user-info__title__description__div">ニックネーム</h1>
+      <h1 class="user-info__title__description__info"><%= @accept.user.nickname %></h1>
+    </div>
+    <div class="user-info__title__description">
+      <h1 class="user-info__title__description__div">都道府県・市町村</h1>
+      <h1 class="user-info__title__description__info"><%= @accept.user.region %></h1>
+    </div>
+    <div class="user-info__title__description">
+      <h1 class="user-info__title__description__div">年齢</h1>
+      <h1 class="user-info__title__description__info"><%= @accept.user.age %></h1>
+    </div>
+    <div class="user-info__title__description">
+      <h1 class="user-info__title__description__div">性別</h1>
+      <h1 class="user-info__title__description__info"><%= @accept.user.gender %></h1>
+    </div>
+  </div>
+  <div class="offer__list__block">
+    <div class="offer__list__block__left">
+      <li>ニックネーム：<br><%= @accept.user.nickname %></li>
+      <li>地域：<%= @accept.user.region %></li>
+      <li>性別：<%= @accept.user.gender %></li>
+    </div>
+    <div class="offer__list__block__right">
+      <li>受付日程：<%= @accept.date %></li>
+      <li>時間：<%= @accept.time %></li>
+      <li>可能人数：<%= @accept.capacity %></li>
+      <li>預かり可能年齢：<%= @accept.age_range %></li>
+      <li>備考：<%= simple_format @accept.beg %></li>
+    </div>
+  </div>
+</div>

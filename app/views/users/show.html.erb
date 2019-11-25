@@ -49,7 +49,7 @@
         <div class="user-info__title__description">
           <h1 class="user-info__title__description__div">性別</h1>
           <h1 class="user-info__title__description__info"><%= @user.gender %></h1>
-        </div>  
+        </div>
       <% end %>
     </div>
 
@@ -67,7 +67,7 @@
             <%= link_to "編集", "/accepts/#{accept.id}/edit", class: :"offer__list__block__left__btn" %>
             <%= link_to "削除", "/accepts/#{accept.id}", method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: :"offer__list__block__left__btn" %>
           <% else %>
-            <%= link_to "依頼する", new_request_url(accept.date), class: :"offer__list__block__left__btn" %>
+            <%= link_to "依頼する", new_request_url, class: :"offer__list__block__left__btn" %>
           <% end %>
         </div>
         <div class="offer__list__block__right">
@@ -90,7 +90,7 @@
       <div class="user-request__descript__brock">
         <div class="user-request__descript__brock__left">
           <% if current_user.id == request.user.id && user_signed_in? %>
-            <li>受付ID.No：<%= request.accept_id %></li>
+            <li>受付ID.No：<%= link_to request.accept_id, accept_path(request.accept_id), class: "user-request__descript__brock__left__link" %></li>
           <% end %>
           <li>指名：<%= request.name %></li>
           <li>年齢：<%= request.age %></li>
