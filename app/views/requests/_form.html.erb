@@ -1,8 +1,8 @@
   <h1 class="make-request__title">依頼フォーム</h1>
   <%= form_for @request do |form| %>
     <label>
-      <h1 class="new_request__title">依頼先ニックネーム</h1>
-      <%= form.text_field :date, class: :"new_request__box", placeholder: :"例）2019-12-3" %>
+      <h1 class="new_request__title">受付ID.No</h1>
+      <%= form.text_field :accept_id, class: :"new_request__box", placeholder: :"番号を入力してください" %>
     </label>
     <label>
       <h1 class="new_request__title">依頼日程</h1>

@@ -10,6 +10,7 @@ class CreateRequests < ActiveRecord::Migration[5.2]
       t.text :personality
       t.text :mention
       t.references :user, foreign_key: true
+      t.references :accept, foreign_key: true
       t.timestamps
     end
   end

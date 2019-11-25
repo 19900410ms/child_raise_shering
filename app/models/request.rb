@@ -1,4 +1,4 @@
 class Request < ApplicationRecord
-  has_many :children
   belongs_to :user
+  belongs_to :accept
 end

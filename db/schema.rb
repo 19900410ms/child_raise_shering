@@ -42,8 +42,10 @@ ActiveRecord::Schema.define(version: 2019_11_22_030616) do
     t.text "personality"
     t.text "mention"
     t.bigint "user_id"
+    t.bigint "accept_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["accept_id"], name: "index_requests_on_accept_id"
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
@@ -67,5 +69,6 @@ ActiveRecord::Schema.define(version: 2019_11_22_030616) do
 
   add_foreign_key "accepts", "users"
   add_foreign_key "comments", "users"
+  add_foreign_key "requests", "accepts"
   add_foreign_key "requests", "users"
 end
