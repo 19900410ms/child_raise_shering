@@ -55,6 +55,9 @@
           list-style: none;
           margin-left: 10px;
           text-align: left;
+          &__link {
+            text-decoration: none;
+          }
           &__btn {
             margin: 3px 5px 3px 0;
             float: left;

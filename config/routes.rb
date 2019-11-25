@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :destroy] do
     resources :comments, only: [:index, :new, :create]
   end
-  resources :accepts, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :accepts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :requests, only: [:show, :new, :create, :edit, :update, :destroy]
 end

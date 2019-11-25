@@ -30,7 +30,7 @@ class RequestsController < ApplicationController
 
   private
   def request_params
-    params.require(:request).permit(:date, :time, :name, :gender, :age, :allergy, :personality, :mention).merge(user_id: current_user.id)
+    params.require(:request).permit(:accept_id, :date, :time, :name, :gender, :age, :allergy, :personality, :mention).merge(user_id: current_user.id)
   end
 
 end

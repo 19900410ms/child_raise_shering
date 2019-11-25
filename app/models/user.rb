@@ -5,6 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :accepts
   has_many :comments
-  has_many :children
   has_many :requests
 end

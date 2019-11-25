@@ -20,5 +20,5 @@
       <h1 class="new_accept__title">特記事項</h1>
       <%= form.text_area :beg, class: :"new_accept__area", placeholder: :"ご依頼される方への要望等がありましたらご記入下さい。"  %>
     </label>
-    <%= form.submit "確定", class: :"btn" %>
+    <%= form.submit "確定", data: {confirm: "入力内容を確定してもよろしいですか？"}, class: :"btn" %>
   <% end %>

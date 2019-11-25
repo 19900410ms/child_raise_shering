@@ -61,6 +61,11 @@ Things you may want to cover:
 |------|----|-------|
 |date|date|null: false|
 |time|integer|null: false|
+|name|string|null: false|
+|gender|string|null: false|
+|age|integer|null: false|
+|allergy|text||
+|personality|text||
 |mention|text||
 |user_id|reference|null: false, foreign_key: true|
 
@@ -76,18 +81,4 @@ Things you may want to cover:
 |user_id|reference|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user
-
-## childrenテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|gender|string|null: false|
-|age|integer|null: false|
-|allergy|text||
-|personality|text||
-|user_id|reference|null: false, foreign_key: true|
-|request_id|reference|null: false, foreign_key: true|
-
-### Assosiation
 - belongs_to :user

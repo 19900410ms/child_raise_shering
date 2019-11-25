@@ -49,7 +49,7 @@
         <div class="user-info__title__description">
           <h1 class="user-info__title__description__div">性別</h1>
           <h1 class="user-info__title__description__info"><%= @user.gender %></h1>
-        </div>  
+        </div>
       <% end %>
     </div>
 
@@ -59,12 +59,13 @@
       <% @accepts.each do |accept| %>
       <div class="offer__list__block">
         <div class="offer__list__block__left">
+          <li>受付ID.No：<%= accept.id %></li>
           <li>ニックネーム：<br><%= link_to accept.user.nickname, user_path(accept.user), class: "offer__list__link" %></li>
           <li>地域：<%= accept.user.region %></li>
           <li>性別：<%= accept.user.gender %></li>
           <% if current_user.id == accept.user.id && user_signed_in? %>
             <%= link_to "編集", "/accepts/#{accept.id}/edit", class: :"offer__list__block__left__btn" %>
-            <%= link_to "削除", "/accepts/#{accept.id}", method: :delete, class: :"offer__list__block__left__btn" %>
+            <%= link_to "削除", "/accepts/#{accept.id}", method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: :"offer__list__block__left__btn" %>
           <% else %>
             <%= link_to "依頼する", new_request_url, class: :"offer__list__block__left__btn" %>
           <% end %>
@@ -88,12 +89,15 @@
       <% @requests.each do |request| %>
       <div class="user-request__descript__brock">
         <div class="user-request__descript__brock__left">
+          <% if current_user.id == request.user.id && user_signed_in? %>
+            <li>受付ID.No：<%= link_to request.accept_id, accept_path(request.accept_id), class: "user-request__descript__brock__left__link" %></li>
+          <% end %>
           <li>指名：<%= request.name %></li>
           <li>年齢：<%= request.age %></li>
           <li>性別：<%= request.gender %></li>
             <% if current_user.id == request.user.id && user_signed_in? %>
               <%= link_to "編集", "/requests/#{request.id}/edit", class: :"user-request__descript__brock__left__btn" %>
-              <%= link_to "削除", "/requests/#{request.id}", method: :delete, class: :"user-request__descript__brock__left__btn" %>
+              <%= link_to "削除", "/requests/#{request.id}", method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: :"user-request__descript__brock__left__btn" %>
             <% end %>
         </div>
         <div class="user-request__descript__brock__right">
