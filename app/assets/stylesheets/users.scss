@@ -1,11 +1,5 @@
 .user{
-  width: 100%;
-  background: image-url("sample1.jpg");
-  background-size: cover;
-  height: calc(100vh - 120px);
-  margin: 0 auto;
-  text-align: center;
-  overflow: scroll;
+  @include contents;
   .user-info {
     &__title {
       font-size: 20px;
