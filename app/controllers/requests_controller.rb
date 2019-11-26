@@ -9,6 +9,7 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.create(request_params)
+    RequestMailer.with(user: @user).receive_request.deliver_later
     redirect_to root_path
   end
 
@@ -19,6 +20,7 @@ class RequestsController < ApplicationController
   def update
     request = Request.find(params[:id])
     request.update(request_params)
+    RequestMailer.with(user: @user).change_request.deliver_later
     redirect_to user_path(current_user.id)
   end
 

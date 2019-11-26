@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>==========================</p>
+    <p><%= @user.name %>様</p>
+    <p>==========================</p>
+
+    <p>本サービスをご利用いただき、ありがとうございます。</p>
+
+    <p>この度、<%= @user.name %>様へ託児依頼が届きましたので、下記の詳細のご確認の上、ご依頼者様へメールの返信をよろしくお願い致します。</p>
+
+    <p>依頼者指名：<%= @request.user.name %></p>
+
+    <p>メールアドレス：<%= @request.user. %></p>
+
+    <p>住所：<%= @request.user.region %><%= @request.user.address %></p>
+
+    <p>年齢：<%= @request.user.age %></p>
+
+    <p>性別：<%= @request.user.gender %></p>
+
+    <p>==========================</p>
+
+    <p>依頼日程：<%= @request.date %></p>
+
+    <p>依頼時間：<%= @request.time %></p>
+
+    <p>お子様の指名：<%= @request.name %></p>
+
+    <p>お子様の年齢：<%= @request.age %></p>
+
+    <p>お子様の性別：<%= @request.gender %></p>
+
+    <p>アレルギー：<%= @request.allergy %></p>
+
+    <p>お子様の性格：<%= @request.gender %></p>
+
+    <p>特記事項：<%= @request.mention %></p>
+  </body>
+</html>
