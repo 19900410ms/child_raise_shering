@@ -1,15 +1,15 @@
 <div class="sign">
- <div class="sign__in">Sign up</div>
+ <div class="sign__in">プロフィール登録</div>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     
     <div class="field">
-      <%= f.label :name %><br />
+      <%= f.label :指名 %><br />
       <%= f.text_field :name, autofocus: true %>
     </div>
 
     <div class="field">
-      <%= f.label :nickname %><br />
+      <%= f.label :ニックネーム %><br />
       <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
     </div>
 
@@ -19,27 +19,27 @@
     </div>
 
     <div class="field">
-      <%= f.label :region %><br />
+      <%= f.label :都道府県・市町村 %><br />
       <%= f.text_field :region, autofocus: true, autocomplete: "region" %>
     </div>
 
     <div class="field">
-      <%= f.label :address %><br />
+      <%= f.label :建物名・番地 %><br />
       <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
     </div>
 
     <div class="field">
-      <%= f.label :age %><br />
+      <%= f.label :年齢 %><br />
       <%= f.text_field :age, autofocus: true, autocomplete: "age" %>
     </div>
 
     <div class="field">
-      <%= f.label :gender %><br />
+      <%= f.label :性別 %><br />
       <%= f.text_field :gender, autofocus: true, autocomplete: "gender" %>
     </div>
 
     <div class="field">
-      <%= f.label :password %>
+      <%= f.label :パスワード %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
@@ -47,12 +47,12 @@
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br />
+      <%= f.label :パスワード確認入力 %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign up", class: "actions__btn" %>
+      <%= f.submit "登録する", class: "actions__btn" %>
     </div>
   <% end %>
 
