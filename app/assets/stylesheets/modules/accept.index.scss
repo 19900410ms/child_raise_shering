@@ -1,3 +1,9 @@
+@media screen and (max-width: 479px) {
+  .offer {
+    background-color: black;
+  }
+}
+
 .offer {
   @include contents;
   background: image-url("pic3.jpg");
@@ -14,7 +20,7 @@
     }
     &__block {
       height: auto;
-      width: 80%;
+      width: 70%;
       border: solid 1px white;
       border-radius: 10px;
       margin: 10px auto;
@@ -22,9 +28,9 @@
       display: flex;
       font-size: 18px;
       &__left {
-        width: 30%;
+        width: 50%;
         list-style: none;
-        margin-left: 10px;
+        margin-left: 15px;
         text-align: left;
         &__btn {
           margin: 3px 5px 3px 0;
@@ -36,7 +42,7 @@
         }
       }
       &__right {
-        widows: 70%;
+        width: 50%;
         list-style: none;
         margin-left: 10px;
         text-align: left;

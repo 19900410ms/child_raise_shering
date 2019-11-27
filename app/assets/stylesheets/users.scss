@@ -37,7 +37,7 @@
       margin-top: 20px;
       &__brock {
         height: auto;
-        width: 80%;
+        width: 70%;
         border: solid 1px gray;
         border-radius: 10px;
         margin: 10px auto;
@@ -45,9 +45,9 @@
         display: flex;
         font-size: 18px;
         &__left {
-          width: 30%;
+          width: 50%;
           list-style: none;
-          margin-left: 10px;
+          margin-left: 15px;
           text-align: left;
           &__link {
             text-decoration: none;
@@ -62,7 +62,7 @@
           }
         }
         &__right {
-          widows: 70%;
+          widows: 50%;
           list-style: none;
           margin-left: 10px;
           text-align: left;
