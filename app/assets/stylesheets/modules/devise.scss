@@ -1,5 +1,9 @@
 .sign {
   @include contents;
+  &__in {
+    margin-top: 20px;
+    font-size: 20px;
+  }
   .field {
     margin: 10px 0;
   }
@@ -11,5 +15,8 @@
   }
   .sessions {
     margin: 10px 0;
+    &__link {
+      text-decoration: none;
+    }
   }
 }
