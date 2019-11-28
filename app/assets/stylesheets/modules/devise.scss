@@ -1,5 +1,7 @@
 .sign {
   @include contents;
+  background: image-url("pic3.jpg");
+  background-size: 50% 50%;
   &__in {
     margin-top: 20px;
     font-size: 20px;

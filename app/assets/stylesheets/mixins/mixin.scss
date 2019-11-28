@@ -1,8 +1,8 @@
 @mixin contents {
   width: 100%;
-  background: image-url("sample2.jpg");
+  background: image-url("sample3.jpg");
   background-size: cover;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 110px);
   margin: 0 auto;
   text-align: center;
   overflow: scroll;
