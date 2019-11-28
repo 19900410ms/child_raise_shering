@@ -1,7 +1,9 @@
 .user{
   @include contents;
+  background-size: 50% 50%;
   .user-info {
     &__title {
+      font-weight: bold;
       font-size: 20px;
       margin: 20px 0;
       &__description {
@@ -17,6 +19,7 @@
     .edit_user {
       &__title {
         font-size: 18px;
+        font-weight: bold;
       }
       &__box {
         width: 30%;
