@@ -29,7 +29,7 @@
         </label>
         <label>
           <h1 class="edit_user__title">性別</h1>
-          <%= form.text_field :gender, class: :"edit_user__box" %>
+          <%= form.select :gender, ["選択してください","男性", "女性"] %>
         </label>
         <%= form.submit "更新", class: :"edit_user__btn" %>
       <% end %>

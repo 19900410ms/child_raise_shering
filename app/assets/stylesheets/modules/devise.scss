@@ -2,12 +2,31 @@
   @include contents;
   background: image-url("pic3.jpg");
   background-size: 50% 50%;
+  .new_user select {
+    width: 31%;
+    height: 33px;
+    font-size: 17px;
+    padding: 5px;
+    border-radius: 0;
+  }
   &__in {
     margin-top: 20px;
     font-size: 20px;
   }
   .field {
     margin: 10px 0;
+    &__box {
+      height: 30px;
+      width: 30%;
+    }
+    #user_email {
+      width: 30%;
+      height: 30px;
+    }
+    #user_password {
+      height: 30px;
+      width: 30%;
+    }
   }
   .actions {
     margin-top: 20px;

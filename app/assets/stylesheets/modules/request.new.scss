@@ -4,6 +4,20 @@
     margin-top: 20px;
     font-size: 20px;
   }
+  .edit_request select {
+    width: 31%;
+    height: 33px;
+    font-size: 17px;
+    padding: 5px;
+    border-radius: 0;
+  }
+  .new_request select {
+    width: 31%;
+    height: 33px;
+    font-size: 17px;
+    padding: 5px;
+    border-radius: 0;
+  }
   .new_request {
     margin-top: 20px;
     &__title {
