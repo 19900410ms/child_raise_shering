@@ -6,7 +6,7 @@
     </label>
     <label>
       <h1 class="new_request__title">依頼日程</h1>
-      <%= form.text_field :date, class: :"new_request__box", placeholder: :"例）2019-12-3" %>
+      <%= form.date_field :date, class: :"new_request__box", placeholder: :"例）2019-12-3" %>
     </label>
     <label>
       <h1 class="new_request__title">依頼時間</h1>
@@ -22,7 +22,7 @@
     </label>
     <label>
       <h1 class="new_request__title">お子様の性別</h1>
-      <%= form.text_field :gender, class: :"new_request__box", placeholder: :"例）男" %>
+      <%= form.select :gender, ["選択してください","男児", "女児"] %>
     </label>
     <label>
       <h1 class="new_request__title">アレルギー</h1>

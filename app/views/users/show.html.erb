@@ -29,7 +29,7 @@
         </label>
         <label>
           <h1 class="edit_user__title">性別</h1>
-          <%= form.text_field :gender, class: :"edit_user__box" %>
+          <%= form.select :gender, ["選択してください","男性", "女性"] %>
         </label>
         <%= form.submit "更新", class: :"edit_user__btn" %>
       <% end %>
@@ -57,6 +57,7 @@
     <h1 class="offer__title">受付中</h1>
     <div class="offer__list">
       <% @accepts.each do |accept| %>
+      <% if Date.today <= accept.date %>
       <div class="offer__list__block">
         <div class="offer__list__block__left">
           <li>受付ID.No：<%= accept.id %></li>
@@ -79,6 +80,7 @@
         </div>
       </div>
       <% end %>
+      <% end %>
     </div>
   </div>
 
@@ -87,6 +89,7 @@
     <h1 class="user-request__title">依頼中</h1>
     <div class="user-request__descript">
       <% @requests.each do |request| %>
+      <% if Date.today <= request.date %>
       <div class="user-request__descript__brock">
         <div class="user-request__descript__brock__left">
           <% if current_user.id == request.user.id && user_signed_in? %>
@@ -108,6 +111,7 @@
           <li>特記事項：<%= request.mention %></li>
         </div>
       </div>
+      <% end %>
       <% end %>
     </div>
     <% end %>

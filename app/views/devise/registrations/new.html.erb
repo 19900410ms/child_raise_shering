@@ -5,37 +5,37 @@
     
     <div class="field">
       <%= f.label :指名 %><br />
-      <%= f.text_field :name, autofocus: true %>
+      <%= f.text_field :name, autofocus: true, class: :field__box %>
     </div>
 
     <div class="field">
       <%= f.label :ニックネーム %><br />
-      <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+      <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: :field__box %>
     </div>
 
     <div class="field">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: :field__box %>
     </div>
 
     <div class="field">
       <%= f.label :都道府県・市町村 %><br />
-      <%= f.text_field :region, autofocus: true, autocomplete: "region" %>
+      <%= f.text_field :region, autofocus: true, autocomplete: "region", class: :field__box %>
     </div>
 
     <div class="field">
       <%= f.label :建物名・番地 %><br />
-      <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+      <%= f.text_field :address, autofocus: true, autocomplete: "address", class: :field__box %>
     </div>
 
     <div class="field">
       <%= f.label :年齢 %><br />
-      <%= f.text_field :age, autofocus: true, autocomplete: "age" %>
+      <%= f.text_field :age, autofocus: true, autocomplete: "age", class: :field__box %>
     </div>
 
     <div class="field">
       <%= f.label :性別 %><br />
-      <%= f.text_field :gender, autofocus: true, autocomplete: "gender" %>
+      <%= f.select :gender, ["選択してください","男性", "女性"], autofocus: true, autocomplete: "gender" %>
     </div>
 
     <div class="field">
@@ -43,12 +43,12 @@
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: :field__box %>
     </div>
 
     <div class="field">
       <%= f.label :パスワード確認入力 %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: :field__box %>
     </div>
 
     <div class="actions">

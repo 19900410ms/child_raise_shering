@@ -1,6 +1,7 @@
 <div class="offer">
   <div class="offer__list">
     <% @accepts.each do |accept| %>
+    <% if Date.today <= accept.date %>
     <div class="offer__list__block">
       <div class="offer__list__block__left">
         <li>ニックネーム：<br><%= link_to accept.user.nickname, user_path(accept.user), class: "offer__list__link" %></li>
@@ -15,6 +16,7 @@
         <li>備考：<%= simple_format accept.beg %></li>
       </div>
     </div>
+    <% end %>
     <% end %>
   </div>
 </div>
