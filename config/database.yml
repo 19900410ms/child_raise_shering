@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: child_raise_shering_production
-  username: child_raise_shering
-  password: <%= ENV['CHILD_RAISE_SHERING_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
