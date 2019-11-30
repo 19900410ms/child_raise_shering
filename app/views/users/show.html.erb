@@ -29,7 +29,7 @@
         </label>
         <label>
           <h1 class="edit_user__title">性別</h1>
-          <%= form.select :gender, ["選択してください","男性", "女性"] %>
+          <%= form.select :gender, ["男性", "女性"], {pronpt: "選択してください"} %>
         </label>
         <%= form.submit "更新", class: :"edit_user__btn" %>
       <% end %>
@@ -85,7 +85,7 @@
   </div>
 
   <div class="user-request">
-    <% if current_user && user_signed_in? %>
+    <% if current_user.id == @user.id %>
     <h1 class="user-request__title">依頼中</h1>
     <div class="user-request__descript">
       <% @requests.each do |request| %>
