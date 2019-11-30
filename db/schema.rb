@@ -24,14 +24,6 @@ ActiveRecord::Schema.define(version: 2019_11_22_030616) do
     t.index ["user_id"], name: "index_accepts_on_user_id"
   end
 
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "text"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
   create_table "requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date", null: false
     t.string "time", null: false
@@ -68,7 +60,6 @@ ActiveRecord::Schema.define(version: 2019_11_22_030616) do
   end
 
   add_foreign_key "accepts", "users"
-  add_foreign_key "comments", "users"
   add_foreign_key "requests", "accepts"
   add_foreign_key "requests", "users"
 end
