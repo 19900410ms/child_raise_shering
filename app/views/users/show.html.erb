@@ -16,11 +16,11 @@
           <%= form.email_field :email, class: :"edit_user__box" %>
         </label>
         <label>
-          <h1 class="edit_user__title">都道府県・市町村</h1>
-          <%= form.text_field :region, class: :"edit_user__box" %>
+          <h1 class="edit_user__title">都道府県</h1>
+          <%= form.select :region, User.regions.keys, {pronpt: "選択してください"}, class: :"edit_user__box" %>
         </label>
         <label>
-          <h1 class="edit_user__title">建物名・番地</h1>
+          <h1 class="edit_user__title">市町村・建物名・番地</h1>
           <%= form.text_field :address, class: :"edit_user__box" %>
         </label>
         <label>
@@ -29,7 +29,7 @@
         </label>
         <label>
           <h1 class="edit_user__title">性別</h1>
-          <%= form.select :gender, ["選択してください","男性", "女性"] %>
+          <%= form.select :gender, ["男性", "女性"], {pronpt: "選択してください"} %>
         </label>
         <%= form.submit "更新", class: :"edit_user__btn" %>
       <% end %>
