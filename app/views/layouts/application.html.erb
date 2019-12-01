@@ -18,6 +18,7 @@
       <div class="header__info">
         <% if user_signed_in? %>
           <%= link_to "マイページ", user_path(current_user.id), class: "header__info__link" %>
+          <%= link_to "受付確認", "/users/#{current_user.id}/deal", class: "header__info__link" %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__info__link" %>
           <%= link_to "依頼する", new_request_url, class: "header__info__link" %>
           <%= link_to "受託する", new_accept_url, class: "header__info__link" %>

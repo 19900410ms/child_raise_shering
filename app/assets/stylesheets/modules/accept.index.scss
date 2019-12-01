@@ -18,9 +18,9 @@
       background: rgba(255,255,255,0.7);
       display: flex;
       font-size: 18px;
+      list-style: none;
       &__left {
         width: 50%;
-        list-style: none;
         margin-left: 15px;
         text-align: left;
         &__btn {
@@ -34,7 +34,6 @@
       }
       &__right {
         width: 50%;
-        list-style: none;
         margin-left: 10px;
         text-align: left;
       }

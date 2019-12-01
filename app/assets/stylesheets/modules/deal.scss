@@ -1,0 +1,73 @@
+.deal {
+  @include contents;
+  &__title {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  &__accept {
+    height: auto;
+    width: 70%;
+    border: solid 3px yellow;
+    border-radius: 10px;
+    margin: 55px auto 10px auto;
+    background: rgba(255,255,255,0.7);
+    display: flex;
+    font-size: 18px;
+    list-style: none;
+    &__left {
+      width: 50%;
+      margin-left: 15px;
+      text-align: left;
+    }
+    &__right {
+      width: 50%;
+      margin-left: 10px;
+      text-align: left;
+    }
+  }
+  &__message {
+    border: blue solid 2PX;
+    width: 45%;
+    height: auto;
+    margin: 0 auto;
+    color: blue;
+    font-weight: bold;
+    font-size: 15px; 
+    background: rgba(255, 255, 255, 1);
+  }
+  &__request {
+    height: auto;
+    width: 70%;
+    border: solid 3px pink;
+    border-radius: 10px;
+    margin: 10px auto;
+    background: rgba(235, 182, 235, 0.5);
+    display: flex;
+    font-size: 18px;
+    list-style: none;
+    &__left {
+      width: 50%;
+      margin-left: 15px;
+      text-align: left;
+      &__accept {
+        text-decoration: none;
+        border: solid orange 1px;
+        padding: 2px 4px;
+        color: orange;
+        background-color: white;
+      }
+      &__decline {
+        text-decoration: none;
+        border: solid orange 1px;
+        padding: 2px 4px;
+        color: orange;
+        background-color: white;
+      }
+    }
+    &__right {
+      width: 50%;
+      margin-left: 10px;
+      text-align: left;
+    }
+  }
+}
