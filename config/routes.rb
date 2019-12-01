@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "accepts#index"
   resources :users, only: [:show, :edit, :update, :destroy] do
-    resources :deals, only: :show
+    member do
+      get "deal"
+    end
   end
   resources :accepts
   resources :requests, only: [:show, :new, :create, :edit, :update, :destroy]

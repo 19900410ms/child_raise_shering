@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit]
+  before_action :set_user, only: [:show, :edit, :deal]
+  before_action :move_to_index, only: :deal
 
   def show
     @accepts = @user.accepts.order("date ASC")
@@ -19,6 +20,11 @@ class UsersController < ApplicationController
   def destroy
   end
 
+  def deal
+    @accepts = @user.accepts.order("date ASC")
+    @requests = Request.all
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :nickname, :email, :region, :address, :age, :gender)
@@ -26,6 +32,10 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def move_to_index
+    redirect_to :root unless current_user.id == @user.id
   end
 
 end
