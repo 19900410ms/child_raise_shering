@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_01_002246) do
+ActiveRecord::Schema.define(version: 2019_11_22_030616) do
 
   create_table "accepts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date", null: false
@@ -22,17 +22,6 @@ ActiveRecord::Schema.define(version: 2019_12_01_002246) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_accepts_on_user_id"
-  end
-
-  create_table "deals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "accept_id"
-    t.bigint "request_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["accept_id"], name: "index_deals_on_accept_id"
-    t.index ["request_id"], name: "index_deals_on_request_id"
-    t.index ["user_id"], name: "index_deals_on_user_id"
   end
 
   create_table "requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -71,9 +60,6 @@ ActiveRecord::Schema.define(version: 2019_12_01_002246) do
   end
 
   add_foreign_key "accepts", "users"
-  add_foreign_key "deals", "accepts"
-  add_foreign_key "deals", "requests"
-  add_foreign_key "deals", "users"
   add_foreign_key "requests", "accepts"
   add_foreign_key "requests", "users"
 end

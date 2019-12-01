@@ -1,3 +1,0 @@
-class Deal < ApplicationRecord
-
-end

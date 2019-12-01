@@ -3,38 +3,44 @@
     受付確認画面
   </div>
   <% @accepts.each do |accept| %>
-    <div class="deal__accept">
-      <div class="deal__accept__left">
-        <li>受付ID.No：<%= accept.id %></li>
-        <li>受付日程：<%= accept.date %></li>
-        <li>時間：<%= accept.time %></li>
-      </div>
-      <div class="deal__accept__right">
-        <li>可能人数：<%= accept.capacity %></li>
-        <li>預かり可能年齢：<%= accept.age_range %></li>
-        <li>備考：<%= simple_format accept.beg %></li>
-      </div>
-    </div>
-    <% @requests.each do |request| %>
-      <% if accept.id == request.accept.id %>
-      <div class="deal__message">
-      上記の受付IDに下記の依頼があります
-      </div>
-        <div class="deal__request">
-          <div class="deal__request__left">
-            <li>指名：<%= request.user.name %></li>
-            <li>受付：<%= request.accept_id %></li>
-            <li>年齢：<%= request.age %></li>
-            <li>性別：<%= request.gender %></li>
-          </div>
-          <div class="deal__request__right">
-            <li>依頼日程：<%= request.date %></li>
-            <li>依頼時間：<%= request.time %></li>
-            <li>アレルギー：<%= request.allergy %></li>
-            <li>性格：<%= request.personality %></li>
-            <li>特記事項：<%= request.mention %></li>
-          </div>
+    <% if Date.today <= accept.date %>
+      <div class="deal__accept">
+        <div class="deal__accept__left">
+          <li>受付ID.No：<%= accept.id %></li>
+          <li>受付日程：<%= accept.date %></li>
+          <li>時間：<%= accept.time %></li>
+          <li>都道府県・市町村：<%= accept.user.region %></li>
         </div>
+        <div class="deal__accept__right">
+          <li>可能人数：<%= accept.capacity %></li>
+          <li>預かり可能年齢：<%= accept.age_range %></li>
+          <li>備考：<%= simple_format accept.beg %></li>
+        </div>
+      </div>
+      <% @requests.each do |request| %>
+        <% if accept.id == request.accept.id %>
+        <div class="deal__message">
+        上記の受付IDに下記の依頼があります
+        </div>
+          <div class="deal__request">
+            <div class="deal__request__left">
+              <li>該当受付ID.No：<%= request.accept_id %></li>
+              <li>依頼日程：<%= request.date %></li>
+              <li>依頼時間：<%= request.time %></li>
+              <li>依頼主：<%= request.user.name %></li>
+              <li>メールアドレス：<%= request.user.email %></li>
+              <li>住所：<%= request.user.region %><%= request.user.address %></li>
+            </div>
+            <div class="deal__request__right">
+              <li>お子様の指名：<%= request.name %></li>
+              <li>年齢：<%= request.age %></li>
+              <li>性別：<%= request.gender %></li>
+              <li>アレルギー：<%= request.allergy %></li>
+              <li>性格：<%= request.personality %></li>
+              <li>特記事項：<%= request.mention %></li>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
