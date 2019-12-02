@@ -9,7 +9,7 @@
           <li>受付ID.No：<%= accept.id %></li>
           <li>受付日程：<%= accept.date %></li>
           <li>時間：<%= accept.time %></li>
-          <li>都道府県・市町村：<%= accept.user.region %></li>
+          <li>地域：<%= accept.user.region %></li>
         </div>
         <div class="deal__accept__right">
           <li>可能人数：<%= accept.capacity %></li>
@@ -20,8 +20,8 @@
       <% @requests.each do |request| %>
         <% if accept.id == request.accept.id %>
         <div class="deal__message">
-        上記の受付IDに下記の依頼があります。
-        記載されております依頼主さまのメールアドレスへ返信をお願い致します。
+        上記の受付IDに下記の依頼があります。<br>
+        返信画面で返信の上、記載されております依頼者さまのメールアドレスへ返信をお願い致します。
         </div>
           <div class="deal__request">
             <div class="deal__request__left">

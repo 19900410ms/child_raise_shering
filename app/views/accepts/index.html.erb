@@ -15,7 +15,9 @@
       <div class="offer__list__block__right">
         <li>受付日程：<%= accept.date %></li>
         <li>時間：<%= accept.time %></li>
-        <li>可能人数：<%= accept.capacity %></li>
+        <% if current_user.id == accept.user.id %>
+          <li>可能人数：<%= accept.capacity %></li>
+        <% end %>
         <li>預かり可能年齢：<%= accept.age_range %></li>
         <li>備考：<%= simple_format accept.beg %></li>
       </div>
