@@ -1,0 +1,19 @@
+<div class="hide">
+  <div class="hide__title">
+    削除画面
+  </div>
+  <div class="hide__accept">
+    <div class="hide__accept__box">
+      <li>受付ID.No：<%= @accept.id %></li>
+      <li>受託日程：<%= @accept.date %></li>
+      <li>受託時間：<%= @accept.time %></li>
+      <li>可能人数：<%= @accept.capacity %></li>
+      <li>受託可能年齢：<%= @accept.age_range %></li>
+      <li>特記事項：<%= @accept.beg %></li>
+    </div>
+  </div>
+  <%= form_for @accept do |form |%>
+  <%= form.text_field :hide, value: :"上記の受付を削除する" %>
+  <%= form.submit "削除", data: {confirm: "下記の受付を削除してもよろしいですか？"} %>
+  <% end %>
+</div>

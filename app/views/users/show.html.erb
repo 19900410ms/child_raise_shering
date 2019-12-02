@@ -1,36 +1,36 @@
 <div class="user">
   <div class="user-info">
     <h1 class="user-info__title">プロフィール</h1>
-    <% if current_user.id == @user.id && user_signed_in? %>
-      <%= form_for @user do |form| %>
-        <label>
-          <h1 class="edit_user__title">指名</h1>
-          <%= form.text_field :name, class: :"edit_user__box" %>
-        </label>
-        <label>
-          <h1 class="edit_user__title">ニックネーム</h1>
-          <%= form.text_field :nickname, class: :"edit_user__box" %>
-        </label>
-        <label>
-          <h1 class="edit_user__title">メールアドレス</h1>
-          <%= form.email_field :email, class: :"edit_user__box" %>
-        </label>
-        <label>
-          <h1 class="edit_user__title">都道府県・市町村</h1>
-          <%= form.text_field :region, class: :"edit_user__box" %>
-        </label>
-        <label>
-          <h1 class="edit_user__title">建物名・番地</h1>
-          <%= form.text_field :address, class: :"edit_user__box" %>
-        </label>
-        <label>
-          <h1 class="edit_user__title">年齢</h1>
-          <%= form.text_field :age, class: :"edit_user__box" %>
-        </label>
-        <label>
-          <h1 class="edit_user__title">性別</h1>
-          <%= form.select :gender, ["男性", "女性"], {pronpt: "選択してください"} %>
-        </label>
+      <% if current_user.id == @user.id && user_signed_in? %>
+        <%= form_for @user do |form| %>
+          <label>
+            <h1 class="edit_user__title">指名</h1>
+            <%= form.text_field :name, class: :"edit_user__box" %>
+          </label>
+          <label>
+            <h1 class="edit_user__title">ニックネーム</h1>
+            <%= form.text_field :nickname, class: :"edit_user__box" %>
+          </label>
+          <label>
+            <h1 class="edit_user__title">メールアドレス</h1>
+            <%= form.email_field :email, class: :"edit_user__box" %>
+          </label>
+          <label>
+            <h1 class="edit_user__title">都道府県・市町村</h1>
+            <%= form.text_field :region, class: :"edit_user__box" %>
+          </label>
+          <label>
+            <h1 class="edit_user__title">建物名・番地</h1>
+            <%= form.text_field :address, class: :"edit_user__box" %>
+          </label>
+          <label>
+            <h1 class="edit_user__title">年齢</h1>
+            <%= form.text_field :age, class: :"edit_user__box" %>
+          </label>
+          <label>
+            <h1 class="edit_user__title">性別</h1>
+            <%= form.select :gender, ["男性", "女性"], {pronpt: "選択してください"} %>
+          </label>
         <%= form.submit "更新", class: :"edit_user__btn" %>
       <% end %>
       <% else %>
@@ -57,33 +57,35 @@
     <h1 class="offer__title">受付中</h1>
     <div class="offer__list">
       <% @accepts.each do |accept| %>
-      <% if Date.today <= accept.date %>
-      <div class="offer__list__block">
-        <div class="offer__list__block__left">
-          <li>受付ID.No：<%= accept.id %></li>
-          <% if current_user.id != accept.user.id %>
-            <li>ニックネーム：<br><%= link_to accept.user.nickname, user_path(accept.user), class: "offer__list__link" %></li>
+        <% if Date.today <= accept.date %>
+          <% if accept.hide != "上記の受付を削除する" %>
+            <div class="offer__list__block">
+              <div class="offer__list__block__left">
+                <li>受付ID.No：<%= accept.id %></li>
+                <% if current_user.id != accept.user.id %>
+                  <li>ニックネーム：<br><%= link_to accept.user.nickname, user_path(accept.user), class: "offer__list__link" %></li>
+                <% end %>
+                <li>地域：<%= accept.user.region %></li>
+                <li>性別：<%= accept.user.gender %></li>
+                <% if current_user.id == accept.user.id && user_signed_in? %>
+                  <%= link_to "編集", "/accepts/#{accept.id}/edit", class: :"offer__list__block__left__btn" %>
+                  <%= link_to "削除", "/accepts/#{accept.id}/hide", class: :"offer__list__block__left__btn" %>
+                <% else %>
+                  <%= link_to "依頼する", new_request_url, class: :"offer__list__block__left__btn" %>
+                <% end %>
+              </div>
+              <div class="offer__list__block__right">
+                <li>受付日程：<%= accept.date %></li>
+                <li>時間：<%= accept.time %></li>
+                <% if current_user.id == accept.user.id && user_signed_in? %>
+                  <li>可能人数：<%= accept.capacity %></li>
+                <% end %>
+                <li>預かり可能年齢：<%= accept.age_range %></li>
+                <li>備考：<%= simple_format accept.beg %></li>
+              </div>
+            </div>
           <% end %>
-          <li>地域：<%= accept.user.region %></li>
-          <li>性別：<%= accept.user.gender %></li>
-          <% if current_user.id == accept.user.id && user_signed_in? %>
-            <%= link_to "編集", "/accepts/#{accept.id}/edit", class: :"offer__list__block__left__btn" %>
-            <%= link_to "削除", "/accepts/#{accept.id}", method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: :"offer__list__block__left__btn" %>
-          <% else %>
-            <%= link_to "依頼する", new_request_url, class: :"offer__list__block__left__btn" %>
-          <% end %>
-        </div>
-        <div class="offer__list__block__right">
-          <li>受付日程：<%= accept.date %></li>
-          <li>時間：<%= accept.time %></li>
-          <% if current_user.id == accept.user.id && user_signed_in? %>
-            <li>可能人数：<%= accept.capacity %></li>
-          <% end %>
-          <li>預かり可能年齢：<%= accept.age_range %></li>
-          <li>備考：<%= simple_format accept.beg %></li>
-        </div>
-      </div>
-      <% end %>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -98,6 +100,8 @@
         <div class="user-request__descript__brock__left">
           <% if current_user.id == request.user.id && user_signed_in? %>
             <li>受付ID.No：<%= link_to request.accept_id, accept_path(request.accept_id), class: "user-request__descript__brock__left__link" %></li>
+          <% elsif @accepts.hide == "上記の受付を削除する" %>
+            <li><span>この受付オファーは削除されました</span></li>
           <% end %>
           <li>指名：<%= request.name %></li>
           <li>年齢：<%= request.age %></li>

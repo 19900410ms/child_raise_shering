@@ -1,8 +1,20 @@
-.reply {
+.reply, .hide {
   @include contents;
   &__title {
     margin-top: 20px;
     font-size: 20px;
+  }
+  &__accept {
+    margin-top: 50px;
+    list-style: none;
+    &__box {
+      margin: 0 auto;
+      border: solid limegreen 3px;
+      height: auto;
+      width: 40%;
+      background: rgba(15, 250, 20, 0.7);
+      line-height: 30px;
+    }
   }
   &__request {
     height: auto;
