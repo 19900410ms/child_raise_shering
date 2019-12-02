@@ -61,7 +61,9 @@
       <div class="offer__list__block">
         <div class="offer__list__block__left">
           <li>受付ID.No：<%= accept.id %></li>
-          <li>ニックネーム：<br><%= link_to accept.user.nickname, user_path(accept.user), class: "offer__list__link" %></li>
+          <% if current_user.id != accept.user.id %>
+            <li>ニックネーム：<br><%= link_to accept.user.nickname, user_path(accept.user), class: "offer__list__link" %></li>
+          <% end %>
           <li>地域：<%= accept.user.region %></li>
           <li>性別：<%= accept.user.gender %></li>
           <% if current_user.id == accept.user.id && user_signed_in? %>
