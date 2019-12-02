@@ -100,7 +100,7 @@
         <div class="user-request__descript__brock__left">
           <% if current_user.id == request.user.id && user_signed_in? %>
             <li>受付ID.No：<%= link_to request.accept_id, accept_path(request.accept_id), class: "user-request__descript__brock__left__link" %></li>
-          <% elsif @accepts.hide == "上記の受付を削除する" %>
+          <% elsif @user.accepts.hide == "上記の受付を削除する" %>
             <li><span>この受付オファーは削除されました</span></li>
           <% end %>
           <li>指名：<%= request.name %></li>
