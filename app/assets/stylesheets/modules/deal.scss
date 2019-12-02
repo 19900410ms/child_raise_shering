@@ -49,19 +49,15 @@
       width: 50%;
       margin-left: 15px;
       text-align: left;
-      &__accept {
+      &__reply {
         text-decoration: none;
         border: solid orange 1px;
         padding: 2px 4px;
         color: orange;
         background-color: white;
       }
-      &__decline {
+      &__status {
         text-decoration: none;
-        border: solid orange 1px;
-        padding: 2px 4px;
-        color: orange;
-        background-color: white;
       }
     }
     &__right {

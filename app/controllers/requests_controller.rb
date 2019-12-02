@@ -11,7 +11,7 @@ class RequestsController < ApplicationController
   def create
     @request = Request.create(request_params)
     RequestMailer.with(user: @user).receive_request.deliver_later
-    redirect_to root_path
+    redirect_to :root
   end
 
   def edit
@@ -20,9 +20,9 @@ class RequestsController < ApplicationController
 
   def update
     request = Request.find(params[:id])
-    request.update(request_params)
+    request.update(request_revise)
     RequestMailer.with(user: @user).change_request.deliver_later
-    redirect_to user_path(current_user.id)
+    redirect_to :root
   end
 
   def destroy
@@ -31,9 +31,17 @@ class RequestsController < ApplicationController
     redirect_to user_path(current_user.id)
   end
 
+  def reply
+    @request = Request.find(params[:id])
+  end
+
   private
   def request_params
-    params.require(:request).permit(:accept_id, :date, :time, :name, :gender, :age, :allergy, :personality, :mention).merge(user_id: current_user.id)
+    params.require(:request).permit(:accept_id, :date, :time, :name, :gender, :age, :allergy, :personality, :mention, :reply).merge(user_id: current_user.id)
+  end
+
+  def request_revise
+    params.require(:request).permit(:accept_id, :date, :time, :name, :gender, :age, :allergy, :personality, :mention, :reply)
   end
 
 end

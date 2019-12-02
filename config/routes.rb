@@ -6,6 +6,15 @@ Rails.application.routes.draw do
       get "deal"
     end
   end
-  resources :accepts
-  resources :requests, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :accepts do
+    member do
+      get "hide"
+    end
+  end
+  resources :requests, only: [:show, :new, :create, :edit, :update, :destroy] do
+    member do
+      get "reply"
+    end
+  end
+
 end

@@ -1,0 +1,49 @@
+.reply, .hide {
+  @include contents;
+  &__title {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  &__accept {
+    margin-top: 50px;
+    list-style: none;
+    &__box {
+      margin: 0 auto;
+      border: solid limegreen 3px;
+      height: auto;
+      width: 40%;
+      background: rgba(255, 255, 255, 0.5);
+      line-height: 30px;
+      border-radius: 10px;
+    }
+  }
+  &__request {
+    height: auto;
+    width: 70%;
+    border: solid 3px skyblue;
+    border-radius: 10px;
+    margin: 50px auto;
+    background: rgba(244, 244, 255, 0.5);
+    display: flex;
+    font-size: 18px;
+    list-style: none;
+    &__left {
+      width: 50%;
+      margin-left: 15px;
+      text-align: left;
+    }
+    &__right {
+      width: 50%;
+      margin-left: 10px;
+      text-align: left;
+    }
+  }
+  select {
+    height: 40px;
+    width: 20%;
+  }
+  input {
+    display: block;
+    margin: 35px auto;
+  }
+}

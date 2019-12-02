@@ -1,22 +1,30 @@
 <div class="offer">
   <div class="offer__list">
     <% @accepts.each do |accept| %>
-    <% if Date.today <= accept.date %>
-    <div class="offer__list__block">
-      <div class="offer__list__block__left">
-        <li>ニックネーム：<br><%= link_to accept.user.nickname, user_path(accept.user), class: "offer__list__link" %></li>
-        <li>地域：<%= accept.user.region %></li>
-        <li>性別：<%= accept.user.gender %></li>
-      </div>
-      <div class="offer__list__block__right">
-        <li>受付日程：<%= accept.date %></li>
-        <li>時間：<%= accept.time %></li>
-        <li>可能人数：<%= accept.capacity %></li>
-        <li>預かり可能年齢：<%= accept.age_range %></li>
-        <li>備考：<%= simple_format accept.beg %></li>
-      </div>
-    </div>
-    <% end %>
+      <% if Date.today <= accept.date %>
+        <% if accept.hide != "上記の受付を削除する" %>
+          <div class="offer__list__block">
+            <div class="offer__list__block__left">
+              <% if current_user.id == accept.user.id %>
+                <li>指名：<%= accept.user.name %></li>
+              <% elsif %>
+                <li>ニックネーム：<br><%= link_to accept.user.nickname, user_path(accept.user), class: "offer__list__link" %></li>
+              <% end %>
+              <li>地域：<%= accept.user.region %></li>
+              <li>性別：<%= accept.user.gender %></li>
+            </div>
+            <div class="offer__list__block__right">
+              <li>受付日程：<%= accept.date %></li>
+              <li>時間：<%= accept.time %></li>
+              <% if current_user.id == accept.user.id %>
+                <li>可能人数：<%= accept.capacity %></li>
+              <% end %>
+              <li>預かり可能年齢：<%= accept.age_range %></li>
+              <li>備考：<%= simple_format accept.beg %></li>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>
