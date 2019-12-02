@@ -116,7 +116,7 @@
           <li>依頼時間：<%= request.time %></li>
           <li>アレルギー：<%= request.allergy %></li>
           <li>性格：<%= request.personality %></li>
-          <li>特記事項：<%= request.mention %></li>
+          <li>特記事項：<%= simple_format request.mention %></li>
           <% if current_user.id == request.user.id && request.reply == "承諾" || request.reply == "辞退" %>
             <li><span>依頼状況：<%= request.reply %></span></li>
           <% end %>
