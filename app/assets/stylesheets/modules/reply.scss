@@ -1,3 +1,28 @@
 .reply {
   @include contents;
+  &__title {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  &__request {
+    height: auto;
+    width: 70%;
+    border: solid 3px skyblue;
+    border-radius: 10px;
+    margin: 50px auto;
+    background: rgba(90, 172, 235, 0.5);
+    display: flex;
+    font-size: 18px;
+    list-style: none;
+    &__left {
+      width: 50%;
+      margin-left: 15px;
+      text-align: left;
+    }
+    &__right {
+      width: 50%;
+      margin-left: 10px;
+      text-align: left;
+    }
+  }
 }
