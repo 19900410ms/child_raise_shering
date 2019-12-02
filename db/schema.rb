@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_22_030616) do
+ActiveRecord::Schema.define(version: 2019_12_02_051108) do
 
   create_table "accepts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date", null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_030616) do
     t.bigint "accept_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "reply"
     t.index ["accept_id"], name: "index_requests_on_accept_id"
     t.index ["user_id"], name: "index_requests_on_user_id"
   end

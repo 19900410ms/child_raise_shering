@@ -7,5 +7,10 @@ Rails.application.routes.draw do
     end
   end
   resources :accepts
-  resources :requests, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :requests, only: [:show, :new, :create, :edit, :update, :destroy] do
+    member do
+      get "reply"
+    end
+  end
+
 end
