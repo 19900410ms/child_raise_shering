@@ -36,10 +36,8 @@ Things you may want to cover:
 |gender|string|null: false|
 
 ### Association
-- has_many :children
 - has_many :accepts
 - has_many :requests
-- has_many :comments
 
 
 ## accepts テーブル
@@ -50,10 +48,12 @@ Things you may want to cover:
 |capacity|integer|null: false|
 |age_range|string||
 |beg|text||
+|hide|string||
 |user_id|reference|null: false, foreign_key: true|
 
 ### Assosiation
 - belongs_to :user
+- has_many :requests
 
 
 ## requests テーブル
@@ -67,18 +67,25 @@ Things you may want to cover:
 |allergy|text||
 |personality|text||
 |mention|text||
+|reply|string||
 |user_id|reference|null: false, foreign_key: true|
 
 ### Assosiation
-- has_many :children
+- belongs_to :accept
 - belongs_to :user
 
+Name: Child Raise Sharing
 
-## commnts テーブル
-|Column|Type|Options|
-|------|----|-------|
-|text|text||
-|user_id|reference|null: false, foreign_key: true|
+Overview: All for Family, all for children
 
-### Association
-- belongs_to :user
+## Description
+
+## Demo
+
+## Requirement
+
+## Usage
+
+## Contribution
+
+
