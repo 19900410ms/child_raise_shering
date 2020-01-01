@@ -74,9 +74,9 @@ Things you may want to cover:
 - belongs_to :accept
 - belongs_to :user
 
-Name: Child Raise Sharing
+## Name: Child Raise Sharing
 
-Overview: All for Family, all for children
+## Overview: All for Family, all for children
 
 ## Description
 
