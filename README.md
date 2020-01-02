@@ -1,27 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Name: Child Raise Sharing
 
-Things you may want to cover:
+## Overview:
+共働き世帯が増加している現状から、私自身が目の当たりにした問題を元にこれからの日本でもっと深刻化する子育てを支援するWebアプリとなります。
 
-* Ruby version
+## Description
 
-* System dependencies
 
-* Configuration
+## Demo
 
-* Database creation
+## Requirement
 
-* Database initialization
+## Usage
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Contribution
 
 ## usersテーブル
 |Column|Type|Options|
@@ -73,19 +66,3 @@ Things you may want to cover:
 ### Assosiation
 - belongs_to :accept
 - belongs_to :user
-
-## Name: Child Raise Sharing
-
-## Overview: All for Family, all for children
-
-## Description
-
-## Demo
-
-## Requirement
-
-## Usage
-
-## Contribution
-
-
