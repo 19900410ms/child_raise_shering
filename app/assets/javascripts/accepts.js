@@ -1,3 +1,4 @@
+/*
 $(window).load(function() {
   $(".user").bgSwitcher({
     images: ['http://gahag.net/img/201608/05s/gahag-0113251319-1.jpg',
@@ -12,7 +13,7 @@ $(window).load(function() {
     duration: 2500, // エフェクトの時間を指定します。
     easing: "swing" // エフェクトのイージングをlinear,swingから指定
   });
-
+*/
   $('.offer').vegas({
     slides: [
       { src: "http://gahag.net/img/201608/05s/gahag-0113251319-1.jpg"},

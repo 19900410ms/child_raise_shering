@@ -25,8 +25,10 @@
       margin: 5px auto;
     }
     &__box {
-      height: 30px;
-      width: 30%;
+      @include input-form;
+    }
+    #request_gender {
+      @include input-form;
     }
     &__area {
       height: 90px;
@@ -38,6 +40,22 @@
       display: block;
       margin: 0 auto;
       margin-bottom: 20px;
+    }
+  }
+}
+
+@media screen and ( max-width:680px ) {
+  .new_request {
+    .new_request__box, .new_request__area, #request_gender {
+      @include resize680;
+    }
+  }
+}
+
+@media screen and ( max-width:500px ) {
+  .new_request {
+    .new_request__box, .new_request__area, #request_gender {
+      @include resize500;
     }
   }
 }

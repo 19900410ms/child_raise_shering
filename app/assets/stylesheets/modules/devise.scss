@@ -16,16 +16,13 @@
   .field {
     margin: 10px 0;
     &__box {
-      height: 30px;
-      width: 30%;
+      @include input-form;
     }
     #user_email {
-      width: 30%;
-      height: 30px;
+      @include input-form;
     }
     #user_password {
-      height: 30px;
-      width: 30%;
+      @include input-form;
     }
   }
   .actions {
@@ -39,5 +36,10 @@
     &__link {
       text-decoration: none;
     }
+  }
+}
+.sessions {
+  a {
+    text-decoration: none;
   }
 }

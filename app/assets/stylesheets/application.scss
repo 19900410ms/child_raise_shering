@@ -1,14 +1,14 @@
 @import "mixins/mixin";
 @import "modules/vegas.min.css";
-@import "modules/reset.scss";
-@import "modules/devise.scss";
-@import "modules/request.new.scss";
-@import "modules/accept.index.scss";
-@import "modules/deal.scss";
-@import "modules/reply.hide.scss";
-@import "accepts.scss";
-@import "requests.scss";
-@import "users.scss";
+@import "modules/reset";
+@import "modules/devise";
+@import "modules/request.new";
+@import "modules/accept.index";
+@import "modules/deal";
+@import "modules/reply-hide";
+@import "accepts";
+@import "requests";
+@import "users";
 
 .header {
   width: 100vw;
@@ -22,6 +22,9 @@
     color: darkblue;
     font-size: 25px;
     margin-left: 20px;
+    &__link {
+      text-decoration: none;
+    }
   }
   &__info {
     &__link {
@@ -31,6 +34,21 @@
     }
   }
 }
+
+@media screen and ( max-width:680px ) {
+  .header {
+    text-align: center;
+    line-height: 35px;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:420px ) {
+  .header__info__link {
+    font-size: 14px;
+  }
+}
+
 footer {
   width: 100vw;
   height: 40px;
