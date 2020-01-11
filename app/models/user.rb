@@ -6,4 +6,5 @@ class User < ApplicationRecord
   validates :name, :nickname, :region, :age, :gender, :address, presence: true
   has_many :accepts
   has_many :requests
+  
 end

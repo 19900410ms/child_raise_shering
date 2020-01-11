@@ -1,6 +1,5 @@
 .user {
   @include contents;
-  background-size: 50% 50%;
   .user-info {
     &__title {
       font-weight: bold;
@@ -22,6 +21,7 @@
         font-weight: bold;
       }
       &__box {
+        text-align: center;
         width: 30%;
         margin-bottom: 10px;
       }
@@ -87,4 +87,24 @@
   font-size: 17px;
   padding: 5px;
   border-radius: 0;
+}
+
+@media screen and ( max-width:680px ) {
+  .user-info {
+    .edit_user {
+      .edit_user__box {
+        width: 40%;
+      }
+    }
+  }
+}
+
+@media screen and ( max-width:500px ) {
+  .user-info {
+    .edit_user {
+      .edit_user__box {
+        width: 50%;
+      }
+    }
+  }
 }

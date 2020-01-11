@@ -1,57 +1,57 @@
 <div class="user">
   <div class="user-info">
     <h1 class="user-info__title">プロフィール</h1>
-      <% if current_user.id == @user.id && user_signed_in? %>
-        <%= form_for @user do |form| %>
-          <label>
-            <h1 class="edit_user__title">指名</h1>
-            <%= form.text_field :name, class: :"edit_user__box" %>
-          </label>
-          <label>
-            <h1 class="edit_user__title">ニックネーム</h1>
-            <%= form.text_field :nickname, class: :"edit_user__box" %>
-          </label>
-          <label>
-            <h1 class="edit_user__title">メールアドレス</h1>
-            <%= form.email_field :email, class: :"edit_user__box" %>
-          </label>
-          <label>
-            <h1 class="edit_user__title">都道府県・市町村</h1>
-            <%= form.text_field :region, class: :"edit_user__box" %>
-          </label>
-          <label>
-            <h1 class="edit_user__title">建物名・番地</h1>
-            <%= form.text_field :address, class: :"edit_user__box" %>
-          </label>
-          <label>
-            <h1 class="edit_user__title">年齢</h1>
-            <%= form.text_field :age, class: :"edit_user__box" %>
-          </label>
-          <label>
-            <h1 class="edit_user__title">性別</h1>
-            <%= form.select :gender, ["男性", "女性"], {pronpt: "選択してください"} %>
-          </label>
-        <%= form.submit "更新", class: :"edit_user__btn" %>
-      <% end %>
-      <% else %>
-        <div class="user-info__title__description">
-          <h1 class="user-info__title__description__div">ニックネーム</h1>
-          <h1 class="user-info__title__description__info"><%= @user.nickname %></h1>
-        </div>
-        <div class="user-info__title__description">
-          <h1 class="user-info__title__description__div">都道府県・市町村</h1>
-          <h1 class="user-info__title__description__info"><%= @user.region %></h1>
-        </div>
-        <div class="user-info__title__description">
-          <h1 class="user-info__title__description__div">年齢</h1>
-          <h1 class="user-info__title__description__info"><%= @user.age %></h1>
-        </div>
-        <div class="user-info__title__description">
-          <h1 class="user-info__title__description__div">性別</h1>
-          <h1 class="user-info__title__description__info"><%= @user.gender %></h1>
-        </div>
-      <% end %>
-    </div>
+    <% if current_user.id == @user.id && user_signed_in? %>
+      <%= form_for @user do |form| %>
+        <label>
+          <h1 class="edit_user__title">指名</h1>
+          <%= form.text_field :name, class: :"edit_user__box" %>
+        </label>
+        <label>
+          <h1 class="edit_user__title">ニックネーム</h1>
+          <%= form.text_field :nickname, class: :"edit_user__box" %>
+        </label>
+        <label>
+          <h1 class="edit_user__title">メールアドレス</h1>
+          <%= form.email_field :email, class: :"edit_user__box" %>
+        </label>
+        <label>
+          <h1 class="edit_user__title">都道府県・市町村</h1>
+          <%= form.text_field :region, class: :"edit_user__box" %>
+        </label>
+        <label>
+          <h1 class="edit_user__title">建物名・番地</h1>
+          <%= form.text_field :address, class: :"edit_user__box" %>
+        </label>
+        <label>
+          <h1 class="edit_user__title">年齢</h1>
+          <%= form.text_field :age, class: :"edit_user__box" %>
+        </label>
+        <label>
+          <h1 class="edit_user__title">性別</h1>
+          <%= form.select :gender, ["男性", "女性"], {pronpt: "選択してください"} %>
+        </label>
+      <%= form.submit "更新", class: :"edit_user__btn" %>
+    <% end %>
+    <% else %>
+      <div class="user-info__title__description">
+        <h1 class="user-info__title__description__div">ニックネーム</h1>
+        <h1 class="user-info__title__description__info"><%= @user.nickname %></h1>
+      </div>
+      <div class="user-info__title__description">
+        <h1 class="user-info__title__description__div">都道府県・市町村</h1>
+        <h1 class="user-info__title__description__info"><%= @user.region %></h1>
+      </div>
+      <div class="user-info__title__description">
+        <h1 class="user-info__title__description__div">年齢</h1>
+        <h1 class="user-info__title__description__info"><%= @user.age %></h1>
+      </div>
+      <div class="user-info__title__description">
+        <h1 class="user-info__title__description__div">性別</h1>
+        <h1 class="user-info__title__description__info"><%= @user.gender %></h1>
+      </div>
+    <% end %>
+  </div>
 
   <div class="user-offer">
     <h1 class="offer__title">受付中</h1>
