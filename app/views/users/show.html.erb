@@ -1,3 +1,5 @@
+<%= render partial: "layouts/header", locals: {user: @user } %>
+
 <div class="user">
   <div class="user-info">
     <h1 class="user-info__title">プロフィール</h1>
@@ -15,13 +17,17 @@
           <h1 class="edit_user__title">メールアドレス</h1>
           <%= form.email_field :email, class: :"edit_user__box" %>
         </label>
+         <label>
+          <h1 class="edit_user__title">都道府県</h1>
+          <%= form.collection_select :prefecture_id, Prefecture.all, :id, :name %>
+        </label>
         <label>
-          <h1 class="edit_user__title">都道府県・市町村</h1>
-          <%= form.text_field :region, class: :"edit_user__box" %>
+          <h1 class="edit_user__title">市町村</h1>
+          <%= form.text_field :city, class: :"edit_user__box" %>
         </label>
         <label>
           <h1 class="edit_user__title">建物名・番地</h1>
-          <%= form.text_field :address, class: :"edit_user__box" %>
+          <%= form.text_field :building_street, class: :"edit_user__box" %>
         </label>
         <label>
           <h1 class="edit_user__title">年齢</h1>
@@ -40,7 +46,7 @@
       </div>
       <div class="user-info__title__description">
         <h1 class="user-info__title__description__div">都道府県・市町村</h1>
-        <h1 class="user-info__title__description__info"><%= @user.region %></h1>
+        <h1 class="user-info__title__description__info"><%= @user.prefecture.name %><%= @user.city %></h1>
       </div>
       <div class="user-info__title__description">
         <h1 class="user-info__title__description__div">年齢</h1>
@@ -65,13 +71,13 @@
                 <% if current_user.id != accept.user.id %>
                   <li>ニックネーム：<br><%= link_to accept.user.nickname, user_path(accept.user), class: "offer__list__link" %></li>
                 <% end %>
-                <li>地域：<%= accept.user.region %></li>
+                <li>地域：<%= accept.user.prefecture.name %><%= accept.user.city %></li>
                 <li>性別：<%= accept.user.gender %></li>
                 <% if current_user.id == accept.user.id && user_signed_in? %>
                   <%= link_to "編集", "/accepts/#{accept.id}/edit", class: :"offer__list__block__left__btn" %>
                   <%= link_to "削除", "/accepts/#{accept.id}/hide", class: :"offer__list__block__left__btn" %>
                 <% else %>
-                  <%= link_to "依頼する", new_request_url, class: :"offer__list__block__left__btn" %>
+                  <%= link_to "依頼する", new_request_url, class: :"offer__list__block__left__btn", :target=>["_blank"] %>
                 <% end %>
               </div>
               <div class="offer__list__block__right">

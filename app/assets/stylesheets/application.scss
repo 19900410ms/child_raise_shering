@@ -6,11 +6,12 @@
 @import "modules/accept.index";
 @import "modules/deal";
 @import "modules/reply-hide";
+@import "modules/room";
 @import "accepts";
 @import "requests";
 @import "users";
 
-.header {
+.header, .devise-header {
   width: 100vw;
   height: 70px;
   background: image-url("header.jpg");

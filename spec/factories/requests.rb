@@ -1,5 +1,4 @@
 FactoryBot.define do
-
   factory :request do
     date           {"2020-01-01"}
     time           {"12:00 ~ 23:00"}

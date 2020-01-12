@@ -1,3 +1,5 @@
+<%= render partial: "layouts/header", locals: {user: @user } %>
+
 <div class="offer">
   <div class="offer__list">
     <% @accepts.each do |accept| %>
@@ -10,7 +12,7 @@
               <% elsif %>
                 <li>ニックネーム：<br><%= link_to accept.user.nickname, user_path(accept.user), class: "offer__list__link" %></li>
               <% end %>
-              <li>地域：<%= accept.user.region %></li>
+              <li>地域：<%= accept.user.prefecture.name %><%= accept.user.city %></li>
               <li>性別：<%= accept.user.gender %></li>
             </div>
             <div class="offer__list__block__right">

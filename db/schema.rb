@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_080203) do
+ActiveRecord::Schema.define(version: 2020_01_12_053818) do
 
   create_table "accepts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date", null: false
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2019_12_02_080203) do
     t.datetime "updated_at", null: false
     t.string "hide"
     t.index ["user_id"], name: "index_accepts_on_user_id"
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "chat", null: false
+    t.bigint "user_id"
+    t.bigint "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -52,16 +62,21 @@ ActiveRecord::Schema.define(version: 2019_12_02_080203) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nickname", null: false
-    t.string "region", null: false
-    t.string "address", null: false
+    t.string "city", null: false
+    t.string "building_street", null: false
     t.integer "age", null: false
     t.string "gender", null: false
     t.string "name", null: false
+    t.integer "prefecture_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "accepts", "users"
+  add_foreign_key "messages", "rooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "requests", "accepts"
   add_foreign_key "requests", "users"
+  add_foreign_key "rooms", "accepts"
+  add_foreign_key "rooms", "requests"
 end

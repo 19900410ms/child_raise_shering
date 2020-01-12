@@ -1,14 +1,17 @@
+<%= render partial: "layouts/header", locals: {user: @user } %>
+
 <div class="reply">
   <div class="reply__title">
     返信画面
   </div>
+  
   <div class="reply__request">
     <div class="reply__request__left">
       <li>依頼日程：<%= @request.date %></li>
       <li>依頼時間：<%= @request.time %></li>
       <li>依頼主：<%= @request.user.name %></li>
       <li>メールアドレス：<%= @request.user.email %></li>
-      <li>住所：<%= @request.user.region %><%= @request.user.address %></li>
+      <li>住所：<%= @request.user.prefecture.name %><%= @request.user.city %><%= @request.user.building_street %></li>
     </div>
     <div class="reply__request__right">
       <li>お子様の指名：<%= @request.name %></li>
