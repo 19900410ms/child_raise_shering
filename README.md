@@ -41,14 +41,17 @@ WebサイトURL: https://guarded-spire-36162.herokuapp.com/
 |email|text|unique: true|
 |password|tring|null: false|
 |nickname|string|null: false|
-|region|string|null: false|
-|address|string|null: false, unique: true|
+|prefecture_id|integer|null: false|
+|city|string|null: false|
+|building_street|string|null: false, unique: true|
 |age|integer|null: false|
 |gender|string|null: false|
 
 ### Association
 - has_many :accepts
 - has_many :requests
+- has_many :rooms
+- has_many :messages
 
 
 ## accepts テーブル
@@ -84,3 +87,26 @@ WebサイトURL: https://guarded-spire-36162.herokuapp.com/
 ### Assosiation
 - belongs_to :accept
 - belongs_to :user
+
+
+## rooms テーブル
+|Column|Type|Options|
+|------|----|-------|
+|accept_id|reference|null: false, foreign_key: true|
+|request_id|reference|null: false, foreign_key: true|
+
+### Assosiation
+- has_many :accepts
+- has_many :requests
+
+
+## messages テーブル
+|Column|Type|Options|
+|------|----|-------|
+|chat|string|null: false|
+|user_id|reference|null: false, foreign_key: true|
+|room_id|reference|null: false, foreign_key: true|
+
+### Assosiation
+- has_many :users
+- belongs_to :room

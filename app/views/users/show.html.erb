@@ -77,7 +77,7 @@
                   <%= link_to "編集", "/accepts/#{accept.id}/edit", class: :"offer__list__block__left__btn" %>
                   <%= link_to "削除", "/accepts/#{accept.id}/hide", class: :"offer__list__block__left__btn" %>
                 <% else %>
-                  <%= link_to "依頼する", new_request_url, class: :"offer__list__block__left__btn" %>
+                  <%= link_to "依頼する", new_request_url, class: :"offer__list__block__left__btn", :target=>["_blank"] %>
                 <% end %>
               </div>
               <div class="offer__list__block__right">

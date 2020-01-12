@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_12_004449) do
+ActiveRecord::Schema.define(version: 2020_01_12_053818) do
 
   create_table "accepts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date", null: false
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2020_01_12_004449) do
     t.datetime "updated_at", null: false
     t.string "hide"
     t.index ["user_id"], name: "index_accepts_on_user_id"
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "chat", null: false
+    t.bigint "user_id"
+    t.bigint "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -63,6 +73,10 @@ ActiveRecord::Schema.define(version: 2020_01_12_004449) do
   end
 
   add_foreign_key "accepts", "users"
+  add_foreign_key "messages", "rooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "requests", "accepts"
   add_foreign_key "requests", "users"
+  add_foreign_key "rooms", "accepts"
+  add_foreign_key "rooms", "requests"
 end
