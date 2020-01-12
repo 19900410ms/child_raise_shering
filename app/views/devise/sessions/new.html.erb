@@ -1,14 +1,16 @@
+<%= render partial: "layouts/devise-header" %>
+
 <div class="sign">
  <div class="sign__in">ログイン</div>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: :field__box %>
     </div>
 
     <div class="field">
       <%= f.label :パスワード %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
+      <%= f.password_field :password, autocomplete: "current-password", class: :field__box %>
     </div>
 
     <% if devise_mapping.rememberable? %>

@@ -1,3 +1,5 @@
+<%= render partial: "layouts/header", locals: {user: @user } %>
+
 <div class="deal">
   <div class="deal__title">
     受付確認画面
@@ -9,7 +11,7 @@
           <li>受付ID.No：<%= accept.id %></li>
           <li>受付日程：<%= accept.date %></li>
           <li>時間：<%= accept.time %></li>
-          <li>地域：<%= accept.user.region %></li>
+          <li>地域：<%= accept.user.prefecture.name %><%= accept.user.city %></li>
         </div>
         <div class="deal__accept__right">
           <li>可能人数：<%= accept.capacity %></li>
@@ -19,18 +21,18 @@
       </div>
       <% @requests.each do |request| %>
         <% if accept.id == request.accept.id %>
-        <div class="deal__message">
-        上記の受付IDに下記の依頼があります。<br>
-        返信画面で返信の上、記載されております依頼者さまのメールアドレスへ返信をお願い致します。
-        </div>
+          <div class="deal__message">
+          上記の受付IDに下記の依頼があります。<br>
+          返信画面で返信の上、記載されております依頼者さまのメールアドレスへ返信をお願い致します。
+          </div>
           <div class="deal__request">
-            <div class="deal__request__left">
+            <ul class="deal__request__left">
               <li>該当受付ID.No：<%= request.accept_id %></li>
               <li>依頼日程：<%= request.date %></li>
               <li>依頼時間：<%= request.time %></li>
               <li>依頼主：<%= request.user.name %></li>
               <li>メールアドレス：<%= request.user.email %></li>
-              <li>住所：<%= request.user.region %><%= request.user.address %></li>
+              <li>住所：<%= accept.user.prefecture.name %><%= request.user.city %><%= request.user.building_street %></li>
               <% if request.reply == nil || request.reply == "選択してください" %>
                 <%= link_to "返信画面へ", "/requests/#{request.id}/reply", class: :"deal__request__left__reply" %>
               <% elsif request.reply == "承諾" %>
@@ -38,15 +40,15 @@
               <% elsif request.reply == "辞退" %>
                 <%= link_to "返信状況：辞退済み", "/requests/#{request.id}/reply", class: :"deal__request__left__status" %>
               <% end %>
-            </div>
-            <div class="deal__request__right">
+            </ul>
+            <ul class="deal__request__right">
               <li>お子様の指名：<%= request.name %></li>
               <li>年齢：<%= request.age %></li>
               <li>性別：<%= request.gender %></li>
               <li>アレルギー：<%= request.allergy %></li>
               <li>性格：<%= request.personality %></li>
               <li>特記事項：<%= request.mention %></li>
-            </div>
+            </ul>
           </div>
         <% end %>
       <% end %>

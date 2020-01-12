@@ -18,10 +18,7 @@
     &__box {
       @include input-form;
     }
-    #user_email {
-      @include input-form;
-    }
-    #user_password {
+    #user_email, #user_password, #user_prefecture_id {
       @include input-form;
     }
   }
@@ -41,5 +38,31 @@
 .sessions {
   a {
     text-decoration: none;
+  }
+}
+
+@media screen and ( max-width:680px ) {
+  .new_user {
+    .field {
+      &__box {
+        @include resize680;
+      }
+      #user_email, #user_password, #user_gender, #user_prefecture_id {
+        @include resize680;
+      }
+    }
+  }
+}
+
+@media screen and ( max-width:500px ) {
+  .new_user {
+    .field {
+      &__box {
+        @include resize500;
+      }
+      #user_email, #user_password, #user_gender, #user_prefecture_id {
+        @include resize500;
+      }
+    }
   }
 }

@@ -4,7 +4,7 @@
     margin-top: 20px;
     font-size: 20px;
   }
-  .new_accept {
+  .new_accept, .edit_accept {
     margin-top: 20px;
     &__title {
       font-size: 18px;
@@ -24,17 +24,10 @@
       margin: 0 auto;
     }
   }
-  .edit_accept {
-    margin-top: 20px;
-    .btn {
-      display: block;
-      margin: 0 auto;
-    }
-  }
 }
 
 @media screen and ( max-width:680px ) {
-  .new_accept {
+  .new_accept, .edit_accept {
     .new_accept__box, .new_accept__area {
       @include resize680;
     }
@@ -42,7 +35,7 @@
 }
 
 @media screen and ( max-width:500px ) {
-  .new_accept {
+  .new_accept, .edit_accept {
     .new_accept__box, .new_accept__area {
       @include resize500;
     }

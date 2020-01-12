@@ -10,7 +10,7 @@
 @import "requests";
 @import "users";
 
-.header {
+.header, .devise-header {
   width: 100vw;
   height: 70px;
   background: image-url("header.jpg");

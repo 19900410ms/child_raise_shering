@@ -4,30 +4,20 @@
     margin-top: 20px;
     font-size: 20px;
   }
-  .edit_request select {
+  #request_gender {
     width: 31%;
     height: 33px;
     font-size: 17px;
     padding: 5px;
     border-radius: 0;
   }
-  .new_request select {
-    width: 31%;
-    height: 33px;
-    font-size: 17px;
-    padding: 5px;
-    border-radius: 0;
-  }
-  .new_request {
+  .new_request, .edit_request {
     margin-top: 20px;
     &__title {
       font-size: 18px;
       margin: 5px auto;
     }
     &__box {
-      @include input-form;
-    }
-    #request_gender {
       @include input-form;
     }
     &__area {
@@ -45,7 +35,7 @@
 }
 
 @media screen and ( max-width:680px ) {
-  .new_request {
+  .new_request, .edit_request {
     .new_request__box, .new_request__area, #request_gender {
       @include resize680;
     }
@@ -53,7 +43,7 @@
 }
 
 @media screen and ( max-width:500px ) {
-  .new_request {
+  .new_request, .edit_request {
     .new_request__box, .new_request__area, #request_gender {
       @include resize500;
     }

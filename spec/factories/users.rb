@@ -6,8 +6,9 @@ FactoryBot.define do
     sequence(:email)         { Faker::Internet.email }
     password                 {"123456"}
     password_confirmation    {"123456"}
-    region                   {"大阪府中央区"}
-    address                  {"難波5丁目1−60 なんばスカイオ15階"}
+    prefecture_id            {"27"}
+    city                     {"中央区"}
+    building_street          {"難波5丁目1−60 なんばスカイオ15階"}
     age                      {"52"}
     gender                   {"男性"}
   end

@@ -1,3 +1,5 @@
+<%= render partial: "layouts/devise-header" %>
+
 <div class="sign">
  <div class="sign__in">プロフィール登録</div>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -19,13 +21,18 @@
     </div>
 
     <div class="field">
-      <%= f.label :都道府県・市町村 %><br />
-      <%= f.text_field :region, autofocus: true, autocomplete: "region", class: :field__box %>
+      <%= f.label :都道府県 %><br />
+      <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :市町村 %><br />
+      <%= f.text_field :city, autofocus: true, autocomplete: "region", class: :field__box %>
     </div>
 
     <div class="field">
       <%= f.label :建物名・番地 %><br />
-      <%= f.text_field :address, autofocus: true, autocomplete: "address", class: :field__box %>
+      <%= f.text_field :building_street, autofocus: true, autocomplete: "address", class: :field__box %>
     </div>
 
     <div class="field">

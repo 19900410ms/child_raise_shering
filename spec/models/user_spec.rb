@@ -48,17 +48,17 @@ describe User do
     end
 
     #詳細住所が空白では登録不可
-    it "is invalid without a address" do
-      user = build(:user, address: nil)
+    it "is invalid without a prefecture_id" do
+      user = build(:user, prefecture_id: nil)
       user.valid?
-      expect(user.errors[:address]).to include("can't be blank")
+      expect(user.errors[:prefecture_id]).to include("can't be blank")
     end
 
     #地域区分が空白では登録不可
-    it "is invalid without a region" do
-      user = build(:user, region: nil)
+    it "is invalid without a city" do
+      user = build(:user, city: nil)
       user.valid?
-      expect(user.errors[:region]).to include("can't be blank")
+      expect(user.errors[:city]).to include("can't be blank")
     end
 
     #年齢が空白では登録不可
