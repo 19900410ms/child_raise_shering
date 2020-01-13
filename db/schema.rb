@@ -54,12 +54,12 @@ ActiveRecord::Schema.define(version: 2020_01_12_053818) do
   end
 
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "accept_id"
+    t.bigint "user_id"
     t.bigint "request_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["accept_id"], name: "index_rooms_on_accept_id"
     t.index ["request_id"], name: "index_rooms_on_request_id"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -86,6 +86,6 @@ ActiveRecord::Schema.define(version: 2020_01_12_053818) do
   add_foreign_key "messages", "users"
   add_foreign_key "requests", "accepts"
   add_foreign_key "requests", "users"
-  add_foreign_key "rooms", "accepts"
   add_foreign_key "rooms", "requests"
+  add_foreign_key "rooms", "users"
 end

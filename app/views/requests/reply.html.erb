@@ -4,7 +4,6 @@
   <div class="reply__title">
     返信画面
   </div>
-  
   <div class="reply__request">
     <div class="reply__request__left">
       <li>依頼日程：<%= @request.date %></li>
@@ -22,7 +21,7 @@
       <li>特記事項：<%= @request.mention %></li>
     </div>
   </div>
-  <%= form_for @request do |form |%>
+  <%= form_for @request do |form|%>
   <%= form.select :reply, ["選択してください","承諾", "辞退"] %>
   <%= form.submit "返信", data: {confirm: "下記の内容で依頼者さまへ返信してもよろしいですか？"} %>
   <% end %>

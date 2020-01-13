@@ -68,6 +68,7 @@ WebサイトURL: https://guarded-spire-36162.herokuapp.com/
 ### Assosiation
 - belongs_to :user
 - has_many :requests
+- has_many :rooms
 
 
 ## requests テーブル
@@ -87,6 +88,7 @@ WebサイトURL: https://guarded-spire-36162.herokuapp.com/
 ### Assosiation
 - belongs_to :accept
 - belongs_to :user
+- has_one :room
 
 
 ## rooms テーブル
@@ -96,8 +98,9 @@ WebサイトURL: https://guarded-spire-36162.herokuapp.com/
 |request_id|reference|null: false, foreign_key: true|
 
 ### Assosiation
-- has_many :accepts
-- has_many :requests
+- belongs_to :user
+- belongs_to :request
+- has_many   :messages
 
 
 ## messages テーブル

@@ -1,4 +1,5 @@
 class Room < ApplicationRecord
-  belongs_to :accept
+  belongs_to :user
   belongs_to :request
+  has_many   :messages
 end
