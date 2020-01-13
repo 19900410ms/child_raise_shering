@@ -4,6 +4,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
   end
 
+  def new
     @room = Room.new
   end
 

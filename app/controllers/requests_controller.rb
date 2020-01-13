@@ -22,6 +22,7 @@ class RequestsController < ApplicationController
     request = Request.find(params[:id])
     request.update(request_revise)
     RequestMailer.with(user: @user).change_request.deliver_later
+    #if request.reply == "承諾"
       #redirect_to new_request_room_path(request_id: request.id)
     #else
       redirect_to root_path
