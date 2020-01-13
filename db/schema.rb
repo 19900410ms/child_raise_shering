@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2020_01_12_053818) do
     t.integer "capacity", null: false
     t.string "age_range"
     t.text "beg"
+    t.string "hide"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "hide"
     t.index ["user_id"], name: "index_accepts_on_user_id"
   end
 
@@ -44,30 +44,39 @@ ActiveRecord::Schema.define(version: 2020_01_12_053818) do
     t.text "allergy"
     t.text "personality"
     t.text "mention"
+    t.string "reply"
     t.bigint "user_id"
     t.bigint "accept_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "reply"
     t.index ["accept_id"], name: "index_requests_on_accept_id"
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "request_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["request_id"], name: "index_rooms_on_request_id"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "nickname", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "building_street", null: false
+    t.integer "age", null: false
+    t.string "gender", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname", null: false
-    t.string "city", null: false
-    t.string "building_street", null: false
-    t.integer "age", null: false
-    t.string "gender", null: false
-    t.string "name", null: false
-    t.integer "prefecture_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -77,6 +86,6 @@ ActiveRecord::Schema.define(version: 2020_01_12_053818) do
   add_foreign_key "messages", "users"
   add_foreign_key "requests", "accepts"
   add_foreign_key "requests", "users"
-  add_foreign_key "rooms", "accepts"
   add_foreign_key "rooms", "requests"
+  add_foreign_key "rooms", "users"
 end

@@ -8,7 +8,6 @@ class User < ApplicationRecord
   has_many :requests
   has_many :messages
   has_many :rooms
-
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 end

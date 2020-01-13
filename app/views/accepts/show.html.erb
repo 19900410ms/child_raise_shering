@@ -9,7 +9,7 @@
     </div>
     <div class="accept-show-info__title__description">
       <h1 class="accept-show-info__title__description__div">都道府県・市町村</h1>
-      <h1 class="accept-show-info__title__description__info"><%= @accept.user.region %></h1>
+      <h1 class="accept-show-info__title__description__info"><%= @accept.user.prefecture.name %><%= @accept.user.city %></h1>
     </div>
     <div class="accept-show-info__title__description">
       <h1 class="accept-show-info__title__description__div">年齢</h1>
@@ -30,7 +30,7 @@
   <div class="offer__list__block">
     <div class="offer__list__block__left">
       <li>ニックネーム：<br><%= @accept.user.nickname %></li>
-      <li>地域：<%= @accept.user.region %></li>
+      <li>地域：<%= @accept.user.prefecture.name %><%= @accept.user.city %></li>
       <li>性別：<%= @accept.user.gender %></li>
     </div>
     <div class="offer__list__block__right">

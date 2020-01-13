@@ -1,7 +1,8 @@
 class RequestsController < ApplicationController
 
+  before_action :set_request, only: [:show, :edit, :reply]
+
   def show
-    @request = Request.find(params[:id])
   end
 
   def new
@@ -11,18 +12,21 @@ class RequestsController < ApplicationController
   def create
     @request = Request.create(request_params)
     RequestMailer.with(user: @user).receive_request.deliver_later
-    redirect_to :root
+    redirect_to root_path
   end
 
   def edit
-    @request = Request.find(params[:id])
   end
 
   def update
     request = Request.find(params[:id])
     request.update(request_revise)
     RequestMailer.with(user: @user).change_request.deliver_later
-    redirect_to :root
+    #if request.reply == "承諾"
+      #redirect_to new_request_room_path(request_id: request.id)
+    #else
+      redirect_to root_path
+    #end
   end
 
   def destroy
@@ -32,7 +36,6 @@ class RequestsController < ApplicationController
   end
 
   def reply
-    @request = Request.find(params[:id])
   end
 
   private
@@ -42,6 +45,10 @@ class RequestsController < ApplicationController
 
   def request_revise
     params.require(:request).permit(:accept_id, :date, :time, :name, :gender, :age, :allergy, :personality, :mention, :reply)
+  end
+
+  def set_request
+    @request = Request.find(params[:id])
   end
 
 end
