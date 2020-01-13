@@ -15,7 +15,11 @@ class AcceptsController < ApplicationController
 
   def create
     accept = Accept.create(accept_params)
-    redirect_to root_path
+    if accept.save
+      redirect_to root_path
+    else
+      redirect_to new_accept_path
+    end
   end
 
   def edit
