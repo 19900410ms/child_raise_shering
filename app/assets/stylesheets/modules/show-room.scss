@@ -1,0 +1,11 @@
+.room {
+  @include contents;
+  .room-show {
+    margin: 0 0 20px;
+    &__title {
+      font-weight: bold;
+      font-size: 20px;
+      margin: 20px 0;
+    }
+  }
+}
