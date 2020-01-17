@@ -37,6 +37,7 @@
               <% if request.reply == nil || request.reply == "選択してください" %>
                 <%= link_to "返信画面へ", "/requests/#{request.id}/reply", class: :"deal__request__left__reply" %>
               <% elsif request.reply == "承諾" %>
+                <li><%= link_to "チャットルームへ", "/requests/#{request.id}/rooms/#{request.room.id}", class: :"chat-access" %></li>
                 <%= link_to "返信状況：承諾済み", "/requests/#{request.id}/reply", class: :"deal__request__left__status" %>
               <% elsif request.reply == "辞退" %>
                 <%= link_to "返信状況：辞退済み", "/requests/#{request.id}/reply", class: :"deal__request__left__status" %>

@@ -4,40 +4,40 @@
   <div class="user-info">
     <h1 class="user-info__title">プロフィール</h1>
     <% if current_user.id == @user.id && user_signed_in? %>
-      <%= form_for @user do |form| %>
+      <%= form_for @user do |f| %>
         <label>
           <h1 class="edit_user__title">指名</h1>
-          <%= form.text_field :name, class: :"edit_user__box" %>
+          <%= f.text_field :name, class: :"edit_user__box" %>
         </label>
         <label>
           <h1 class="edit_user__title">ニックネーム</h1>
-          <%= form.text_field :nickname, class: :"edit_user__box" %>
+          <%= f.text_field :nickname, class: :"edit_user__box" %>
         </label>
         <label>
           <h1 class="edit_user__title">メールアドレス</h1>
-          <%= form.email_field :email, class: :"edit_user__box" %>
+          <%= f.email_field :email, class: :"edit_user__box" %>
         </label>
          <label>
           <h1 class="edit_user__title">都道府県</h1>
-          <%= form.collection_select :prefecture_id, Prefecture.all, :id, :name %>
+          <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name %>
         </label>
         <label>
           <h1 class="edit_user__title">市町村</h1>
-          <%= form.text_field :city, class: :"edit_user__box" %>
+          <%= f.text_field :city, class: :"edit_user__box" %>
         </label>
         <label>
           <h1 class="edit_user__title">建物名・番地</h1>
-          <%= form.text_field :building_street, class: :"edit_user__box" %>
+          <%= f.text_field :building_street, class: :"edit_user__box" %>
         </label>
         <label>
           <h1 class="edit_user__title">年齢</h1>
-          <%= form.text_field :age, class: :"edit_user__box" %>
+          <%= f.text_field :age, class: :"edit_user__box" %>
         </label>
         <label>
           <h1 class="edit_user__title">性別</h1>
-          <%= form.select :gender, ["男性", "女性"], {pronpt: "選択してください"} %>
+          <%= f.select :gender, ["男性", "女性"], {pronpt: "選択してください"} %>
         </label>
-      <%= form.submit "更新", class: :"edit_user__btn" %>
+      <%= f.submit "更新", class: :"edit_user__btn" %>
     <% end %>
     <% else %>
       <div class="user-info__title__description">
@@ -74,8 +74,8 @@
                 <li>地域：<%= accept.user.prefecture.name %><%= accept.user.city %></li>
                 <li>性別：<%= accept.user.gender %></li>
                 <% if current_user.id == accept.user.id && user_signed_in? %>
-                  <%= link_to "編集", "/accepts/#{accept.id}/edit", class: :"offer__list__block__left__btn" %>
-                  <%= link_to "削除", "/accepts/#{accept.id}/hide", class: :"offer__list__block__left__btn" %>
+                  <%= link_to "編集", edit_accept_path(accept.id), class: :"offer__list__block__left__btn" %>
+                  <%= link_to "削除", hide_accept_path(accept.id), class: :"offer__list__block__left__btn" %>
                 <% else %>
                   <%= link_to "依頼する", new_request_url, class: :"offer__list__block__left__btn", :target=>["_blank"] %>
                 <% end %>
@@ -112,9 +112,11 @@
           <li>指名：<%= request.name %></li>
           <li>年齢：<%= request.age %></li>
           <li>性別：<%= request.gender %></li>
-            <% if current_user.id == request.user.id && user_signed_in? %>
-              <%= link_to "編集", "/requests/#{request.id}/edit", class: :"user-request__descript__brock__left__btn" %>
-              <%= link_to "削除", "/requests/#{request.id}", method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: :"user-request__descript__brock__left__btn" %>
+            <% if current_user.id == request.user.id && request.reply == "承諾" || request.reply == "辞退" %>
+              <li><%= link_to "チャットルームでメッセージの確認", "/requests/#{request.id}/rooms/#{request.room.id}", class: :"user-request__descript__brock__left__chat" %></li>
+            <% elsif current_user.id == request.user.id && user_signed_in? %>
+              <%= link_to "編集", edit_request_path(request.id), class: :"user-request__descript__brock__left__btn" %>
+              <%= link_to "削除", request_path(request.id), method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: :"user-request__descript__brock__left__btn" %>
             <% end %>
         </div>
         <div class="user-request__descript__brock__right">

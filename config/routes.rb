@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     member do
       get "reply"
     end
-    resources :rooms, only: [:index, :show, :new, :create, :destroy] do
+    resources :rooms, only: [:show, :new, :create] do
       resources :messages, only: [:show, :create]
     end
   end

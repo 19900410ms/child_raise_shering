@@ -1,5 +1,30 @@
 .make-room {
   @include contents;
-  .make-room-show {
+  .make-confirm {
+    margin: 0 0 20px;
+    &__title {
+      font-weight: bold;
+      font-size: 20px;
+      margin: 20px 0;
+    }
+    &__description {
+      margin: 20px 0;
+      &__div {
+        font-size: 14px;
+      }
+      &__info {
+        font-size: 18px;
+      }
+    }
+  }
+  .create-room {
+    &__message {
+      color: red;
+      font-size: 12px;
+      font-weight: 300;
+      margin: 20px 0 10px;
+    }
+    #new-room {
+    }
   }
 }

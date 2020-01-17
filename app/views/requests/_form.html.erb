@@ -1,40 +1,40 @@
   <h1 class="make-request__title">依頼フォーム</h1>
-  <%= form_for @request do |form| %>
+  <%= form_for @request do |f| %>
     <label>
       <h1 class="new_request__title">受付ID.No</h1>
-      <%= form.text_field :accept_id, class: :"new_request__box", placeholder: :"番号を入力してください" %>
+      <%= f.text_field :accept_id, class: :"new_request__box", placeholder: :"番号を入力してください" %>
     </label>
     <label>
       <h1 class="new_request__title">依頼日程</h1>
-      <%= form.date_field :date, class: :"new_request__box", placeholder: :"例）2019-12-3" %>
+      <%= f.date_field :date, class: :"new_request__box", placeholder: :"例）2019-12-3" %>
     </label>
     <label>
       <h1 class="new_request__title">依頼時間</h1>
-      <%= form.text_field :time, class: :"new_request__box", placeholder: :"例）8:30 ~ 19:00" %>
+      <%= f.text_field :time, class: :"new_request__box", placeholder: :"例）8:30 ~ 19:00" %>
     </label>
     <label>
       <h1 class="new_request__title">お子様の指名</h1>
-      <%= form.text_field :name, class: :"new_request__box", placeholder: :"例）山田 太郎" %>
+      <%= f.text_field :name, class: :"new_request__box", placeholder: :"例）山田 太郎" %>
     </label>
      <label>
       <h1 class="new_request__title">お子様の年齢</h1>
-      <%= form.text_field :age, class: :"new_request__box", placeholder: :"例）3歳" %>
+      <%= f.text_field :age, class: :"new_request__box", placeholder: :"例）3歳" %>
     </label>
     <label>
       <h1 class="new_request__title">お子様の性別</h1>
-      <%= form.select :gender, ["選択してください","男児", "女児"] %>
+      <%= f.select :gender, ["選択してください","男児", "女児"] %>
     </label>
     <label>
       <h1 class="new_request__title">アレルギー</h1>
-      <%= form.text_area :allergy, class: :"new_request__area", placeholder: :"正確にご記入をお願いします。" %>
+      <%= f.text_area :allergy, class: :"new_request__area", placeholder: :"正確にご記入をお願いします。" %>
     <label>
     </label>
       <h1 class="new_request__title">お子様の性格</h1>
-      <%= form.text_area :personality, class: :"new_request__area", placeholder: :"繊細な性格等、配慮が必要な事情がありましたらご記入下さい。" %>
+      <%= f.text_area :personality, class: :"new_request__area", placeholder: :"繊細な性格等、配慮が必要な事情がありましたらご記入下さい。" %>
     </label>
     <label>
       <h1 class="new_request__title">特記事項</h1>
-      <%= form.text_area :mention, class: :"new_request__area", placeholder: :"お預けになる方へのお願い等がありましたらご記入下さい。" %>
+      <%= f.text_area :mention, class: :"new_request__area", placeholder: :"お預けになる方へのお願い等がありましたらご記入下さい。" %>
     </label>
-    <%= form.submit "確定", data: {confirm: "入力内容を確定してもよろしいですか？"}, class: :"new_request__btn" %>
+    <%= f.submit "確定", data: {confirm: "入力内容を確定してもよろしいですか？"}, class: :"new_request__btn" %>
   <% end %>

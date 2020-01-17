@@ -16,7 +16,8 @@ WebサイトURL: https://guarded-spire-36162.herokuapp.com/
 - deviseによるユーザー管理機能
 - 託児依頼、預かりオファーの投稿
 - 託児以来に対する返信機能
-- Vegas、bgswitcherによる画像ループ（トップページ、ユーザー詳細画面）
+- Vegasによる画像ループ（トップページ）
+- chat機能の非同期通信
 
 ## Usage:
 - 共通作業  
@@ -26,13 +27,15 @@ WebサイトURL: https://guarded-spire-36162.herokuapp.com/
 ②依頼したいオファーのユーザーページから、該当オファーの依頼するをクリック  
 ③依頼フォームを入力  
 ④依頼先から「承諾」または「辞退」の返信を待つ  
-⑤受託側からメールにて再度詳細な案内を受信  
+⑤「承諾」の場合はマイページにてチャットルームへのリンクが作成される  
+⑥チャット画面にて依頼先と打ち合わせ
 - 受託側  
 ①受託フォームの入力  
 ②受付確認画面から依頼があれば返信画面へ  
-③依頼先へ「承諾」または「辞退」の返信  
+③依頼主へ「承諾」または「辞退」の返信  
 ④依頼主のマイページへ返信内容が表示される  
-⑤依頼主へメールにて再度詳細を送信  
+⑤「承諾」を選択した場合はチャットルーム作成  
+⑥チャット画面にて依頼主との詳細のやり取り
 
 ## usersテーブル
 |Column|Type|Options|
@@ -94,7 +97,7 @@ WebサイトURL: https://guarded-spire-36162.herokuapp.com/
 ## rooms テーブル
 |Column|Type|Options|
 |------|----|-------|
-|accept_id|reference|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
 |request_id|reference|null: false, foreign_key: true|
 
 ### Assosiation

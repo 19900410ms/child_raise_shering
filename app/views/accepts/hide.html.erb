@@ -14,8 +14,8 @@
       <li>特記事項：<%= @accept.beg %></li>
     </div>
   </div>
-  <%= form_for @accept do |form |%>
-  <%= form.text_field :hide, value: :"上記の受付を削除する" %>
-  <%= form.submit "削除", data: {confirm: "下記の受付を削除してもよろしいですか？"} %>
+  <%= form_for @accept do |f|%>
+    <%= f.text_field :hide, value: :"上記の受付を削除する" %>
+    <%= f.submit "削除", data: {confirm: "下記の受付を削除してもよろしいですか？"} %>
   <% end %>
 </div>

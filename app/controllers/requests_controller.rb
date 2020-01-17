@@ -21,12 +21,13 @@ class RequestsController < ApplicationController
   def update
     request = Request.find(params[:id])
     request.update(request_revise)
-    RequestMailer.with(user: @user).change_request.deliver_later
-    #if request.reply == "承諾"
-      #redirect_to new_request_room_path(request_id: request.id)
-    #else
+    #RequestMailer.with(user: @user).change_request.deliver_later
+    if request.reply == "承諾"
+      @room = Room.new
+      redirect_to new_request_room_path(request_id: request.id)
+    else
       redirect_to root_path
-    #end
+    end
   end
 
   def destroy
