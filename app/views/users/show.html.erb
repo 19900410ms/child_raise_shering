@@ -74,8 +74,8 @@
                 <li>地域：<%= accept.user.prefecture.name %><%= accept.user.city %></li>
                 <li>性別：<%= accept.user.gender %></li>
                 <% if current_user.id == accept.user.id && user_signed_in? %>
-                  <%= link_to "編集", "/accepts/#{accept.id}/edit", class: :"offer__list__block__left__btn" %>
-                  <%= link_to "削除", "/accepts/#{accept.id}/hide", class: :"offer__list__block__left__btn" %>
+                  <%= link_to "編集", edit_accept_path(accept.id), class: :"offer__list__block__left__btn" %>
+                  <%= link_to "削除", hide_accept_path(accept.id), class: :"offer__list__block__left__btn" %>
                 <% else %>
                   <%= link_to "依頼する", new_request_url, class: :"offer__list__block__left__btn", :target=>["_blank"] %>
                 <% end %>
@@ -112,9 +112,11 @@
           <li>指名：<%= request.name %></li>
           <li>年齢：<%= request.age %></li>
           <li>性別：<%= request.gender %></li>
-            <% if current_user.id == request.user.id && user_signed_in? %>
-              <%= link_to "編集", "/requests/#{request.id}/edit", class: :"user-request__descript__brock__left__btn" %>
-              <%= link_to "削除", "/requests/#{request.id}", method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: :"user-request__descript__brock__left__btn" %>
+            <% if current_user.id == request.user.id && request.reply == "承諾" || request.reply == "辞退" %>
+              <li><%= link_to "チャットルームでメッセージの確認", "/requests/#{request.id}/rooms/#{request.room.id}", class: :"user-request__descript__brock__left__chat" %></li>
+            <% elsif current_user.id == request.user.id && user_signed_in? %>
+              <%= link_to "編集", edit_request_path(request.id), class: :"user-request__descript__brock__left__btn" %>
+              <%= link_to "削除", request_path(request.id), method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: :"user-request__descript__brock__left__btn" %>
             <% end %>
         </div>
         <div class="user-request__descript__brock__right">

@@ -9,18 +9,18 @@
       <div class="room-chat__left__request">
         <h1 class="room-chat__left__request__title">依頼内容</h1>
         <ul class="room-chat__left__request__detail">
-          <li class="room-chat__left__request__detail__list">受託者指名：<span><%= @room.request.accept.user.name %></span></li>
-          <li class="room-chat__left__request__detail__list">依頼日程：<span><%= @room.request.date %></span></li>
-          <li class="room-chat__left__request__detail__list">依頼時間：<span><%= @room.request.time %></span></li>
-          <li class="room-chat__left__request__detail__list">依頼主指名：<span><%= @room.request.user.name %></span></li>
-          <li class="room-chat__left__request__detail__list">メールアドレス：<span><%= @room.request.user.email %></span></li>
-          <li class="room-chat__left__request__detail__list">住所：<span><%= @room.request.user.prefecture.name %><%= @room.request.user.city %><%= @room.request.user.building_street %></span></li>
-          <li class="room-chat__left__request__detail__list">お子様の指名：<span><%= @room.request.name %></span></li>
-          <li class="room-chat__left__request__detail__list">年齢：<span><%= @room.request.age %></span></li>
-          <li class="room-chat__left__request__detail__list">性別：<span><%= @room.request.gender %></span></li>
-          <li class="room-chat__left__request__detail__list">アレルギー：<span><%= @room.request.allergy %></span></li>
-          <li class="room-chat__left__request__detail__list">性格：<span><%= @room.request.personality %></span></li>
-          <li class="room-chat__left__request__detail__list">特記事項：<span><%= @room.request.mention %></span></li>
+          <li>受託者指名：<span><%= @room.request.accept.user.name %></span></li>
+          <li>依頼主指名：<span><%= @room.request.user.name %></span></li>
+          <li>依頼日程：<span><%= @room.request.date %></span></li>
+          <li>依頼時間：<span><%= @room.request.time %></span></li>
+          <li>メールアドレス：<span><%= @room.request.user.email %></span></li>
+          <li>住所：<span><%= @room.request.user.prefecture.name %><%= @room.request.user.city %><%= @room.request.user.building_street %></span></li>
+          <li>お子様の指名：<span><%= @room.request.name %></span></li>
+          <li>年齢：<span><%= @room.request.age %></span></li>
+          <li>性別：<span><%= @room.request.gender %></span></li>
+          <li>アレルギー：<span><%= @room.request.allergy %></span></li>
+          <li>性格：<span><%= @room.request.personality %></span></li>
+          <li>特記事項：<span><%= @room.request.mention %></span></li>
         </ul>
       </div>
       <div class="room-chat__left__form">
