@@ -36,7 +36,7 @@
           <div class="message-box">
             <ul class="message-box__head">
               <li class="message-box__head__name"><%= message.user.name %></li>
-              <li class="message-box__head__created-at"><%= message.created_at.strftime('%Y/%m/%d %H:%M') %></li>
+              <li class="message-box__head__created-at"><%= message.created_at.strftime("%Y年%m月%d日 %H時%M分") %></li>
             </ul>
             <p class="message-box__text"><%= message.chat %></p>
           </div>
