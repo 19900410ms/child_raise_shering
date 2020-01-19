@@ -112,7 +112,7 @@
           <li>指名：<%= request.name %></li>
           <li>年齢：<%= request.age %></li>
           <li>性別：<%= request.gender %></li>
-            <% if current_user.id == request.user.id && request.reply == "承諾" || request.reply == "辞退" %>
+            <% if current_user.id == request.user.id && request.reply == "承諾" %>
               <li><%= link_to "チャットルームでメッセージの確認", "/requests/#{request.id}/rooms/#{request.room.id}", class: :"user-request__descript__brock__left__chat" %></li>
             <% elsif current_user.id == request.user.id && user_signed_in? %>
               <%= link_to "編集", edit_request_path(request.id), class: :"user-request__descript__brock__left__btn" %>
