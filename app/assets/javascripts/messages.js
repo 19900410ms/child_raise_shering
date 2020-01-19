@@ -1,6 +1,6 @@
 $(function() {
   function buildHTML(message) {
-    var html = `<div class="message-box">
+    var html = `<div class="message-box" data-message-id=${message.id}>
                   <ul class="message-box__head">
                     <li class="message-box__head__name">${message.user_name}</li>
                     <li class="message-box__head__created-at">${message.created_at}</li>

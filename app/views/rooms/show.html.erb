@@ -33,7 +33,7 @@
     <div class="room-chat__right">
       <div class="room-chat__right__box">
         <% @room.messages.each do |message| %>
-          <div class="message-box">
+          <div class="message-box" data-message-id=<%= message.id %>>
             <ul class="message-box__head">
               <li class="message-box__head__name"><%= message.user.name %></li>
               <li class="message-box__head__created-at"><%= message.created_at.strftime("%Y年%m月%d日 %H時%M分") %></li>
