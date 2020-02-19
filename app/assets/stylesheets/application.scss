@@ -6,12 +6,12 @@
 @import "modules/accept/index";
 @import "modules/accept/show";
 @import "modules/accept/new-edit";
-@import "modules/deal";
+@import "modules/user/show";
+@import "modules/user/deal";
 @import "modules/reply-hide";
 @import "modules/new-room";
 @import "modules/show-room";
 @import "requests";
-@import "users";
 
 .header, .devise-header {
   width: 100vw;
