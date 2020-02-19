@@ -40,6 +40,9 @@ class AcceptsController < ApplicationController
   def hide
   end
   
+  def search
+  end
+  
   private
   def accept_params
     params.require(:accept).permit(:date, :time, :capacity, :age_range, :beg, :hide).merge(user_id: current_user.id)

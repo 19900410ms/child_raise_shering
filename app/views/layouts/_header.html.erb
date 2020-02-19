@@ -6,7 +6,7 @@
     <div class="header__info">
       <%= link_to "マイページ", user_path(current_user.id), class: "header__info__link" %>
       <%= link_to "受付確認", deal_user_path(current_user.id), class: "header__info__link" %>
-      <%= link_to "依頼する", new_request_path, class: "header__info__link" %>
+      <%= link_to "検索する", search_accepts_path, class: "header__info__link" %>
       <%= link_to "受託する", new_accept_path, class: "header__info__link" %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__info__link" %>
     </div>

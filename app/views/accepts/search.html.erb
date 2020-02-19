@@ -1,0 +1,6 @@
+<%= render partial: "layouts/header", locals: {user: @user } %>
+
+<div class="search">
+  <%= form_with(scope: :search, url: search_accepts_path, method: :get, local: true) do |f| %>
+  <% end %>
+</div>
