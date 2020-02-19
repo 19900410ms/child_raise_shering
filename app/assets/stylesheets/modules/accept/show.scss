@@ -1,0 +1,30 @@
+.accept-show {
+  @include contents;
+  &__delete-message {
+    border: red solid 3px;
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: white;
+    height: 30px;
+    line-height: 30px;
+    width: 40%;
+    margin: 10px auto 20px auto;
+  }
+  .accept-show-info {
+    &__title {
+      font-weight: bold;
+      font-size: 20px;
+      margin: 20px 0;
+      &__description {
+        margin: 20px 0;
+        &__div {
+          font-size: 16px;
+        }
+        &__info {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
