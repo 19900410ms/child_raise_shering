@@ -9,13 +9,17 @@
     &__link {
       text-decoration: none;
     }
+    &__block:hover {
+      background: rgba(255,255,255,0.9);
+    }
     &__block {
       height: auto;
       width: 70%;
       border: solid 1px white;
       border-radius: 10px;
       margin: 10px auto;
-      background: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.5);
+      transition: background-color 0.7s;
       display: flex;
       font-size: 18px;
       list-style: none;
