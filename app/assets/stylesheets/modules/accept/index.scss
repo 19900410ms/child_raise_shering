@@ -7,7 +7,12 @@
   &__list {
     margin-top: 20px;
     &__link {
+      color: #5507FF;
       text-decoration: none;
+      transition: color.3s;
+    }
+    &__link:hover {
+      color: #005FFF;
     }
     &__block:hover {
       background: rgba(255,255,255,0.9);
@@ -27,6 +32,25 @@
         width: 50%;
         margin-left: 15px;
         text-align: left;
+        &__blue {
+          color: #5507FF;
+        }
+        &__request-view {
+          color: #5507FF;
+          text-decoration: none;
+          transition: color.3s;
+        }
+        &__request-view:hover {
+          color: #1E90FF;
+        }
+        &__index-btn {
+          color: #5507FF;
+          text-decoration: none;
+          transition: color.3s;
+        }
+        &__index-btn:hover {
+          color: #FF367F;
+        }
         &__btn {
           margin: 3px 5px 3px 0;
           float: left;
