@@ -3,12 +3,13 @@
 @import "modules/reset";
 @import "modules/devise";
 @import "modules/request.new";
-@import "modules/accept.index";
+@import "modules/accept/index";
+@import "modules/accept/show";
+@import "modules/accept/new-edit";
 @import "modules/deal";
 @import "modules/reply-hide";
 @import "modules/new-room";
 @import "modules/show-room";
-@import "accepts";
 @import "requests";
 @import "users";
 
