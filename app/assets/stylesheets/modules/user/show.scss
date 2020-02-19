@@ -41,13 +41,17 @@
     }
     &__descript {
       margin-top: 20px;
+      &__brock:hover {
+        background: rgba(255,255,255,0.9);
+      }
       &__brock {
         height: auto;
         width: 70%;
         border: solid 1px gray;
         border-radius: 10px;
         margin: 10px auto;
-        background: rgba(255,255,255,0.8);
+        background: rgba(255,255,255,0.5);
+        transition: background-color 0.7s;
         display: flex;
         font-size: 18px;
         &__left {

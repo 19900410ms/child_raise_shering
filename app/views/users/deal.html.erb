@@ -34,11 +34,14 @@
               <li>依頼主：<%= request.user.name %></li>
               <li>メールアドレス：<%= request.user.email %></li>
               <li>住所：<%= request.user.prefecture.name %><%= request.user.city %><%= request.user.building_street %></li>
-              <% if request.reply == nil || request.reply == "選択してください" %>
+              <% if request.reply == nil || request.reply == "選択してください" || request.reply == "" %>
                 <%= link_to "返信画面へ", "/requests/#{request.id}/reply", class: :"deal__request__left__reply" %>
-              <% elsif request.reply == "承諾" %>
-                <li><%= link_to "チャットルームへ", "/requests/#{request.id}/rooms/#{request.room.id}", class: :"chat-access" %></li>
+              <% elsif request.reply == "承諾" && request.room.present? %>
                 <%= link_to "返信状況：承諾済み", "/requests/#{request.id}/reply", class: :"deal__request__left__status" %>
+                <li><%= link_to "チャットルームへ", "/requests/#{request.id}/rooms/#{request.room.id}", class: :"chat-access" %></li>
+              <% elsif request.reply == "承諾" %>
+                <%= link_to "返信状況：承諾済み", "/requests/#{request.id}/reply", class: :"deal__request__left__status" %>
+                <li><%= link_to "チャットルーム作成画面へ", new_request_room_path(request_id: request.id), class: :"chat-access" %></li>
               <% elsif request.reply == "辞退" %>
                 <%= link_to "返信状況：辞退済み", "/requests/#{request.id}/reply", class: :"deal__request__left__status" %>
               <% end %>

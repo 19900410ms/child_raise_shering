@@ -27,6 +27,24 @@
     margin-left: 20px;
     &__link {
       text-decoration: none;
+      position: relative;
+    }
+    &__link::after{
+      height: 2px;
+      width: 100%;
+      position: absolute;
+      visibility: hidden;
+      bottom: 2px;
+      left: 0;
+      content: '';
+      background: rgb(146, 146, 243);
+      opacity: 0;
+      transition: .4s;
+    }
+    &__link:hover::after{
+      bottom: -6px;
+      opacity: 1;
+      visibility: visible;
     }
   }
   &__info {
@@ -34,6 +52,24 @@
       text-decoration: none;
       caret-color: black;
       margin-right: 10px;
+      position: relative;
+    }
+    &__link::after{
+      height: 2px;
+      width: 100%;
+      position: absolute;
+      visibility: hidden;
+      bottom: 2px;
+      left: 0;
+      content: '';
+      background: rgb(146, 146, 243);
+      opacity: 0;
+      transition: .4s;
+    }
+    &__link:hover::after{
+      bottom: -6px;
+      opacity: 1;
+      visibility: visible;
     }
   }
 }
