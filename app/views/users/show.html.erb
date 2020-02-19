@@ -112,8 +112,12 @@
           <li>指名：<%= request.name %></li>
           <li>年齢：<%= request.age %></li>
           <li>性別：<%= request.gender %></li>
-            <% if current_user.id == request.user.id && request.reply == "承諾" %>
+            <% if current_user.id == request.user.id && request.reply == "承諾" && request.room.present? %>
               <li><%= link_to "チャットルームでメッセージの確認", "/requests/#{request.id}/rooms/#{request.room.id}", class: :"user-request__descript__brock__left__chat" %></li>
+            <% elsif request.reply == "承諾" && request.room.present? == false %>
+              <li class="user-request__descript__brock__left__chat">依頼主のチャットルーム作成待ち</li>
+            <% elsif request.reply == "辞退" %>
+              <%= link_to "依頼を削除する", request_path(request.id), method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: :"user-request__descript__brock__left__chat" %>
             <% elsif current_user.id == request.user.id && user_signed_in? %>
               <%= link_to "編集", edit_request_path(request.id), class: :"user-request__descript__brock__left__btn" %>
               <%= link_to "削除", request_path(request.id), method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: :"user-request__descript__brock__left__btn" %>
