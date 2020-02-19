@@ -1,0 +1,30 @@
+.search {
+  @include contents;
+  &__form {
+    width: 70%;
+    font-size: 16px;
+    margin: 0 auto;
+    #search_users_prefecture_id {
+      color: #333;
+      margin: 20px 0;
+      height: 45px;
+      width: 200px;
+    }
+    &__btn {
+      height: 45px;
+      width: 70px;
+      color: white;
+      border: 1px solid rgb(86,200,235);
+      background-color: rgb(86,196,232);
+      margin-left: 15px;
+      border-radius: 10px;
+      transition: color.3s;
+      transition: background-color.3s;
+    }
+    &__btn:hover {
+      color: rgb(86,196,232);
+      font-weight: 700;
+      background-color: white;
+    }
+  }
+}

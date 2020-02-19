@@ -41,8 +41,9 @@ class AcceptsController < ApplicationController
   end
   
   def search
+    @accepts = Accept.includes(:user).order("date ASC")
   end
-  
+
   private
   def accept_params
     params.require(:accept).permit(:date, :time, :capacity, :age_range, :beg, :hide).merge(user_id: current_user.id)
@@ -54,6 +55,10 @@ class AcceptsController < ApplicationController
 
   def set_accept
     @accept = Accept.find(params[:id])
+  end
+
+  def search_params
+    params.fetch(:search, {}).permit(:prefecture_id)
   end
   
 end
