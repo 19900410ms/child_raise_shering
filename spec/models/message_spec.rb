@@ -1,5 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe Message, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Accept do
+
+  describe '#create' do
+
+    #メッセージが空白では登録不可
+    it "is invalid without a chat" do
+      message = build(:message, chat: nil)
+      message.valid?
+      expect(message.errors[:chat]).to include("can't be blank")
+    end
+
+  end
+
 end
