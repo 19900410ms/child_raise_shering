@@ -59,7 +59,10 @@
     <% end %>
   </div>
 
-  <%= render partial: "accepts/accept_list", locals: {user: @user} %>
+   <div class="user-offer">
+    <h1 class="offer__title">受付中</h1>
+      <%= render partial: "accepts/accept_list", locals: {user: @user} %>
+   </div>
 
   <div class="user-request">
     <% if current_user.id == @user.id %>

@@ -7,6 +7,7 @@
             <% if current_user.id == accept.user.id %>
               <li>指名：<%= accept.user.name %></li>
             <% elsif %>
+              <li>受付ID.No：<%= link_to accept.id, accept_path(id: accept.id), class: "offer__list__detail" %></li>
               <li>ニックネーム：<br><%= link_to accept.user.nickname, user_path(accept.user), class: "offer__list__link" %></li>
             <% end %>
             <li>地域：<%= accept.user.prefecture.name %><%= accept.user.city %></li>

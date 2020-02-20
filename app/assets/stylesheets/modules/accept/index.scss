@@ -6,6 +6,9 @@
   }
   &__list {
     margin-top: 20px;
+    &__detail {
+      text-decoration: none;
+    }
     &__link {
       color: #5507FF;
       text-decoration: none;
