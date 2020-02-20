@@ -41,10 +41,20 @@ class AcceptsController < ApplicationController
   end
   
   def search
-    @accepts = Accept.includes(:user).order("date ASC")
+    binding.pry
+    @accepts = Accept.search(search_params)
+    # if @accept = Accept.search(search_params)
+    #   @accepts = Accept.where('date LIKE ?', "%#{params[:date]}%")
+    # else
+    #   @accepts = Accept.where("id < 8")
+    # end
   end
 
   private
+  def search_params
+    params.fetch(:search, {}).permit(:date, :prefecture_id)
+  end
+
   def accept_params
     params.require(:accept).permit(:date, :time, :capacity, :age_range, :beg, :hide).merge(user_id: current_user.id)
   end
@@ -55,10 +65,6 @@ class AcceptsController < ApplicationController
 
   def set_accept
     @accept = Accept.find(params[:id])
-  end
-
-  def search_params
-    params.fetch(:search, {}).permit(:prefecture_id)
   end
   
 end
