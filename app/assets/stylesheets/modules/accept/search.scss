@@ -11,7 +11,7 @@
       width: 200px;
       border-radius: 5px;
     }
-    #search_users_prefecture_id {
+    #search_prefecture_id {
       color: #333;
       margin: 20px 15px 0;
       height: 45px;
@@ -23,7 +23,6 @@
       color: white;
       border: 1px solid rgb(86,200,235);
       background-color: rgb(86,196,232);
-      
       border-radius: 10px;
       transition: color.3s;
       transition: background-color.3s;
@@ -32,6 +31,26 @@
       color: rgb(86,196,232);
       font-weight: 700;
       background-color: white;
+    }
+  }
+}
+
+@media screen and ( max-width:740px ) {
+  .search {
+    &__form {
+      font-size: 14px;
+      #search_date {
+        height: 30px;
+        width: 30%;
+      }
+      #search_prefecture_id {
+        height: 35px;
+        width: 30%;
+      }
+      &__btn {
+        height: 35px;
+        width: 20%;
+      }
     }
   }
 }

@@ -41,13 +41,8 @@ class AcceptsController < ApplicationController
   end
   
   def search
-    binding.pry
+    # binding.pry
     @accepts = Accept.search(search_params)
-    # if @accept = Accept.search(search_params)
-    #   @accepts = Accept.where('date LIKE ?', "%#{params[:date]}%")
-    # else
-    #   @accepts = Accept.where("id < 8")
-    # end
   end
 
   private
