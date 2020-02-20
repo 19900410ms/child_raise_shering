@@ -40,7 +40,16 @@ class AcceptsController < ApplicationController
   def hide
   end
   
+  def search
+    # binding.pry
+    @accepts = Accept.search(search_params)
+  end
+
   private
+  def search_params
+    params.fetch(:search, {}).permit(:date, :prefecture_id)
+  end
+
   def accept_params
     params.require(:accept).permit(:date, :time, :capacity, :age_range, :beg, :hide).merge(user_id: current_user.id)
   end

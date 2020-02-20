@@ -22,7 +22,7 @@
 
     <div class="field">
       <%= f.label :都道府県 %><br />
-      <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name %>
+      <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '都道府県を選択' %>
     </div>
 
     <div class="field">

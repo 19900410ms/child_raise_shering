@@ -1,4 +1,4 @@
-<%= render partial: "layouts/header", locals: {user: @user } %>
+<%= render partial: "layouts/header", locals: {user: @user} %>
 
 <div class="user">
   <div class="user-info">
@@ -59,42 +59,10 @@
     <% end %>
   </div>
 
-  <div class="user-offer">
+   <div class="user-offer">
     <h1 class="offer__title">受付中</h1>
-    <div class="offer__list">
-      <% @accepts.each do |accept| %>
-        <% if Date.today <= accept.date %>
-          <% if accept.hide != "上記の受付を削除する" %>
-            <div class="offer__list__block">
-              <div class="offer__list__block__left">
-                <li>受付ID.No：<%= accept.id %></li>
-                <% if current_user.id != accept.user.id %>
-                  <li>ニックネーム：<br><%= link_to accept.user.nickname, user_path(accept.user), class: "offer__list__link" %></li>
-                <% end %>
-                <li>地域：<%= accept.user.prefecture.name %><%= accept.user.city %></li>
-                <li>性別：<%= accept.user.gender %></li>
-                <% if current_user.id == accept.user.id && user_signed_in? %>
-                  <%= link_to "編集", edit_accept_path(accept.id), class: :"offer__list__block__left__btn" %>
-                  <%= link_to "削除", hide_accept_path(accept.id), class: :"offer__list__block__left__btn" %>
-                <% else %>
-                  <%= link_to "依頼する", new_request_url, class: :"offer__list__block__left__btn", :target=>["_blank"] %>
-                <% end %>
-              </div>
-              <div class="offer__list__block__right">
-                <li>受付日程：<%= accept.date %></li>
-                <li>時間：<%= accept.time %></li>
-                <% if current_user.id == accept.user.id && user_signed_in? %>
-                  <li>可能人数：<%= accept.capacity %></li>
-                <% end %>
-                <li>預かり可能年齢：<%= accept.age_range %></li>
-                <li>備考：<%= simple_format accept.beg %></li>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+      <%= render partial: "accepts/accept_list", locals: {user: @user} %>
+   </div>
 
   <div class="user-request">
     <% if current_user.id == @user.id %>

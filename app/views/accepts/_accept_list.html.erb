@@ -1,0 +1,35 @@
+<div class="offer__list">
+  <% @accepts.each do |accept| %>
+    <% if Date.today <= accept.date %>
+      <% if accept.hide != "上記の受付を削除する" %>
+        <div class="offer__list__block">
+          <div class="offer__list__block__left">
+            <% if current_user.id == accept.user.id %>
+              <li>指名：<%= accept.user.name %></li>
+            <% elsif %>
+              <li>受付ID.No：<%= link_to accept.id, accept_path(id: accept.id), class: "offer__list__detail" %></li>
+              <li>ニックネーム：<br><%= link_to accept.user.nickname, user_path(accept.user), class: "offer__list__link" %></li>
+            <% end %>
+            <li>地域：<%= accept.user.prefecture.name %><%= accept.user.city %></li>
+            <li>性別：<%= accept.user.gender %></li>
+            <% if current_user.id != accept.user.id %>
+              <li><%= link_to "この案内に託児依頼する", new_request_url, class: :"offer__list__block__left__index-btn", :target=>["_blank"] %></li>
+            <% elsif current_user.id == accept.user.id && accept.requests.present? %>
+              <li class="offer__list__block__left__blue">託児依頼あり</li>
+              <li><%= link_to "受付確認画面へ", deal_user_path(current_user.id), class: :"offer__list__block__left__request-view" %></li>
+            <% end %>
+          </div>
+          <div class="offer__list__block__right">
+            <li>受付日程：<%= accept.date %></li>
+            <li>時間：<%= accept.time %></li>
+            <% if current_user.id == accept.user.id %>
+              <li>可能人数：<%= accept.capacity %></li>
+            <% end %>
+            <li>預かり可能年齢：<%= accept.age_range %></li>
+            <li>備考：<%= simple_format accept.beg %></li>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
