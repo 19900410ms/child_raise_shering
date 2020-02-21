@@ -9,5 +9,7 @@ FactoryBot.define do
     personality    {"活発"}
     mention        {"特になし"}
     reply          {"選択してください"}
+    user_id        {"1"}
+    accept_id      {"4"}
   end
 end

@@ -6,5 +6,6 @@ FactoryBot.define do
     age_range   {"0 ~ 10"}
     beg         {"特になし"}
     hide        {""}
+    user_id     {"5"}
   end
 end
