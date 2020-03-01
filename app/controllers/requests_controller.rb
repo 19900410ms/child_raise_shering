@@ -1,9 +1,6 @@
 class RequestsController < ApplicationController
 
-  before_action :set_request, only: [:show, :edit, :reply]
-
-  def show
-  end
+  before_action :set_request, only: [:show, :edit, :destroy, :reply]
 
   def new
     @request = Request.new
@@ -21,7 +18,6 @@ class RequestsController < ApplicationController
   def update
     request = Request.find(params[:id])
     request.update(request_revise)
-    #RequestMailer.with(user: @user).change_request.deliver_later
     if request.reply == "承諾"
       @room = Room.new
       redirect_to new_request_room_path(request_id: request.id)
@@ -31,8 +27,7 @@ class RequestsController < ApplicationController
   end
 
   def destroy
-    request = Request.find(params[:id])
-    request.destroy
+    @request.destroy
     redirect_to user_path(current_user.id)
   end
 

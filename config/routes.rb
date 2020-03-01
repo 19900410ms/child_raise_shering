@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       get "search"
     end
   end
-  resources :requests, only: [:show, :new, :create, :edit, :update, :destroy] do
+  resources :requests, only: [:new, :create, :edit, :update, :destroy] do
     member do
       get "reply"
     end

@@ -17,6 +17,10 @@
             <% elsif current_user.id == accept.user.id && accept.requests.present? %>
               <li class="offer__list__block__left__blue">託児依頼あり</li>
               <li><%= link_to "受付確認画面へ", deal_user_path(current_user.id), class: :"offer__list__block__left__request-view" %></li>
+            
+            <% elsif controller.controller_name == "users"  && current_user.id == accept.user.id && accept.requests.blank? %>
+              <%= link_to "編集", edit_accept_path(accept.id), class: :"user-request__descript__brock__left__btn" %>
+              <%= link_to "削除", hide_accept_path(accept.id), class: :"user-request__descript__brock__left__btn" %>
             <% end %>
           </div>
           <div class="offer__list__block__right">
