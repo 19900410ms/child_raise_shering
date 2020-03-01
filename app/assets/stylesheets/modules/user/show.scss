@@ -70,14 +70,6 @@
             text-decoration: none;
             color: red;
           }
-          &__btn {
-            margin: 3px 5px 3px 0;
-            float: left;
-            border: solid 1px black;
-            text-decoration: none;
-            color: black;
-            padding: 2px 4px;
-          }
         }
         &__right {
           widows: 50%;
@@ -92,6 +84,36 @@
     }
   }
 }
+.edit-user-btn {
+  margin: 5px 10px 5px 0;
+  float: left;
+  border: solid 1px blue;
+  border-radius: 5px;
+  text-decoration: none;
+  color: rgb(0, 124, 251);
+  padding: 2px 6px;
+  transition: .7s;
+}
+.edit-user-btn:hover {
+  color: white;
+  background-color: rgb(0, 124, 251);
+}
+
+.delete-user-btn {
+  margin: 5px 0;
+  float: left;
+  border: solid 1px red;
+  border-radius: 5px;
+  text-decoration: none;
+  color: rgb(221, 53, 69);
+  padding: 2px 6px;
+  transition: .9s;
+}
+.delete-user-btn:hover {
+  color: white;
+  background-color: rgb(221, 53, 69);
+}
+
 .user select {
   width: 31%;
   height: 33px;

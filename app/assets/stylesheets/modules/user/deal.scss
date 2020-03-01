@@ -47,14 +47,23 @@
     list-style: none;
     &__left {
       width: 50%;
-      margin-left: 15px;
+      margin: 5px 0 5px 15px;
       text-align: left;
       &__reply {
+        margin: 5px 0 0;
+        width: 90px;
+        display: block;
         text-decoration: none;
         border: solid orange 1px;
-        padding: 2px 4px;
+        border-radius: 5px;
+        padding: 0 5px;
         color: orange;
         background-color: white;
+        transition: .7s;
+      }
+      &__reply:hover {
+        color: white;
+        background-color: orange;
       }
       &__status {
         text-decoration: none;
