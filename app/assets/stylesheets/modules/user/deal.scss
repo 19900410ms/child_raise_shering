@@ -41,7 +41,7 @@
     border: solid 3px pink;
     border-radius: 10px;
     margin: 10px auto;
-    background: rgba(235, 182, 235, 0.5);
+    background: rgba(255,255,255,0.8);
     display: flex;
     font-size: 18px;
     list-style: none;
@@ -56,9 +56,8 @@
         text-decoration: none;
         border: solid orange 1px;
         border-radius: 5px;
-        padding: 0 5px;
+        padding: 0 7px;
         color: orange;
-        background-color: white;
         transition: .7s;
       }
       &__reply:hover {

@@ -35,8 +35,11 @@
         width: 50%;
         margin-left: 15px;
         text-align: left;
-        &__blue {
+        &__red {
           color: rgb(255, 0, 191);
+        }
+        &__blue {
+          color: blue;
         }
         &__request-view {
           color: #5507FF;
