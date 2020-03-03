@@ -1,7 +1,7 @@
 .sign {
   @include contents;
-  background: image-url("pic3.jpg");
-  background-size: 50% 50%;
+  // background: image-url("pic3.jpg");
+  // background-size: 50% 50%;
   .new_user select {
     width: 31%;
     height: 33px;
@@ -22,8 +22,18 @@
       @include input-form;
     }
   }
+  .forget-password {
+    margin: 20px 0;
+    &__link {
+      text-decoration: none;
+      transition: .3s;
+    }
+    &__link:hover {
+      color: blue;
+    }
+  }
   .actions {
-    margin-top: 20px;
+    margin: 20px 0;
     &__btn {
       font-size: 15px;
     }
