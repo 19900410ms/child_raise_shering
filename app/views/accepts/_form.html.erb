@@ -20,5 +20,9 @@
       <h1 class="new_accept__title">特記事項</h1>
       <%= f.text_area :beg, class: :"new_accept__area", placeholder: :"ご依頼される方への要望等がありましたらご記入下さい。"  %>
     </label>
-    <%= f.submit "確定", data: {confirm: "入力内容を確定してもよろしいですか？"}, class: :"btn" %>
+    <% if controller.action_name == "new" %>
+      <%= f.submit "受託条件を確定する", data: {confirm: "受託条件を確定してもよろしいですか？"}, class: :"btn" %>
+    <% elsif controller.action_name == "edit" %>
+      <%= f.submit "受託条件を変更する", data: {confirm: "受託条件を変更してもよろしいですか？"}, class: :"btn" %>
+    <% end %>
   <% end %>

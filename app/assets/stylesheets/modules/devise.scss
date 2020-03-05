@@ -36,9 +36,6 @@
     margin: 20px 0;
     &__btn {
       @include form-buttons;
-      color: white;
-      background-color: rgb(17, 162, 183);
-      border: 1px solid rgb(17, 162, 183);  
       font-size: 15px;
     }
     &__btn:hover {
