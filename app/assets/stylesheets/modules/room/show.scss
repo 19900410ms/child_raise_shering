@@ -8,6 +8,7 @@
     }
   }
   .room-chat {
+    height: calc(100% - 70px);
     display: flex;
     justify-content: center;
     &__left {
