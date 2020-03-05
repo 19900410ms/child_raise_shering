@@ -98,3 +98,27 @@
     }
   }
 }
+
+
+@media screen and ( max-width:500px ) {
+  .room {
+    .room-chat {
+      &__left {
+        &__request {
+          height: 410px;
+        }
+        &__form {
+          height: 105px;
+          .new_message {
+            #message_chat {
+              height: 80px;
+            }
+            #chat-send {
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+  }  
+}
