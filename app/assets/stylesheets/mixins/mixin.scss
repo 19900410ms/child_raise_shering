@@ -8,6 +8,17 @@
   overflow: scroll;
 }
 
+@mixin form-buttons {
+  height: auto;
+  width: auto;
+  padding: 5px 10px;
+  color: white;
+  background-color: rgb(17, 162, 183);
+  border: 1px solid rgb(17, 162, 183);
+  border-radius: 5px;
+  transition: .5s;
+}
+
 @mixin input-form {
   height: 30px;
   width: 30%;

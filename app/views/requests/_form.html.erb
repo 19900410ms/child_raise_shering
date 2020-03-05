@@ -36,5 +36,9 @@
       <h1 class="new_request__title">特記事項</h1>
       <%= f.text_area :mention, class: :"new_request__area", placeholder: :"お預けになる方へのお願い等がありましたらご記入下さい。" %>
     </label>
-    <%= f.submit "確定", data: {confirm: "入力内容を確定してもよろしいですか？"}, class: :"new_request__btn" %>
+    <% if controller.action_name == "new" %>
+      <%= f.submit "依頼する", data: {confirm: "依頼を確定してもよろしいですか？"}, class: :"btn" %>
+    <% elsif controller.action_name == "edit" %>
+      <%= f.submit "依頼内容を変更する", data: {confirm: "依頼内容を変更してもよろしいですか？"}, class: :"btn" %>
+    <% end %>
   <% end %>

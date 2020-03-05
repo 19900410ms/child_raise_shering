@@ -37,7 +37,7 @@
           <h1 class="edit_user__title">性別</h1>
           <%= f.select :gender, ["男性", "女性"], {pronpt: "選択してください"} %>
         </label>
-      <%= f.submit "更新", class: :"edit_user__btn" %>
+      <%= f.submit "プロフィールを更新する", class: :"edit_user__update" %>
     <% end %>
     <% else %>
       <div class="user-info__title__description">

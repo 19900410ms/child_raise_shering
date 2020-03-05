@@ -26,10 +26,14 @@
       resize: none;
       margin-bottom: 20px;
     }
-    &__btn {
+    .btn {
+      @include form-buttons;
       display: block;
-      margin: 0 auto;
-      margin-bottom: 20px;
+      margin: 0 auto 20px;
+    }
+    .btn:hover {
+      color: rgb(17, 162, 183);
+      background-color: white;
     }
   }
 }

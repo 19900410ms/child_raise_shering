@@ -25,9 +25,18 @@
         width: 30%;
         margin-bottom: 10px;
       }
-      &__btn {
-        display: block;
+      &__update {
+        @include form-buttons;
         margin: 20px auto 10px;
+        display: block;
+        color: rgb(17, 162, 183);
+        background-color: white;
+        font-size: 15px;
+        transition: .7s;
+      }
+      &__update:hover {
+        color: white;
+        background-color: rgb(17, 162, 183);
       }
       #user_prefecture_id {
         @include input-form;

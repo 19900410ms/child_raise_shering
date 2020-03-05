@@ -24,7 +24,7 @@
   <div class="create-room">
     <p class="create-room__message">チャットを開始する場合は<br>下記のボタンをクリック</p>
     <%= form_for ([@request, @room]) do |f| %>
-      <%= f.submit "チャットルームを作成する", id: :"new-room__btn" %>
+      <%= f.submit "チャットルームを作成する", class: :"new_room__btn" %>
     <% end %>
   </div>
 </div>

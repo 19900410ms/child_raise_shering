@@ -23,6 +23,6 @@
   </div>
   <%= form_for @request do |f|%>
   <%= f.select :reply, ["選択してください","承諾", "辞退"] %>
-  <%= f.submit "返信", data: {confirm: "下記の内容で依頼者さまへ返信してもよろしいですか？"} %>
+  <%= f.submit "返信する", data: {confirm: "下記の内容で依頼者さまへ返信してもよろしいですか？"} %>
   <% end %>
 </div>
