@@ -3,7 +3,7 @@ class AcceptsController < ApplicationController
   before_action :set_accept, only: [:show, :edit, :hide]
 
   def index
-    @accepts = Accept.includes(:user).order("date ASC")
+    @accepts = Accept.includes(:user).order("date ASC").page(params[:page]).per(10)
   end
 
   def show
