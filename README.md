@@ -1,7 +1,4 @@
-# README
-
-## Name:
-サイト名: Child Raise Sharing  
+# Child Raise Sharing
 WebサイトURL: https://guarded-spire-36162.herokuapp.com/
 
 ## Overview:
@@ -14,10 +11,11 @@ WebサイトURL: https://guarded-spire-36162.herokuapp.com/
 
 ## Description:
 - deviseによるユーザー管理機能
-- 託児依頼、預かりオファーの投稿
+- 託児依頼、受託オファーの投稿
 - 託児以来に対する返信機能
 - Vegasによる画像ループ（トップページ）
 - chat機能の非同期通信
+- ページネーション機能（トップページ）
 - 日付指定による検索機能
 
 ## Usage:
@@ -37,3 +35,8 @@ WebサイトURL: https://guarded-spire-36162.herokuapp.com/
 ④依頼主のマイページへ返信内容が表示される  
 ⑤「承諾」を選択した場合はチャットルーム作成  
 ⑥チャット画面にて依頼主との詳細のやり取り
+
+## Development environment:
+- ruby 2.5.1
+- Ruby on Rails 5.2.3
+- Heroku
