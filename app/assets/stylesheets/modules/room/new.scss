@@ -24,5 +24,17 @@
       font-weight: 300;
       margin: 20px 0 10px;
     }
+    .new_room {
+      margin: 25px 0 0;
+      &__btn {
+        @include form-buttons;
+        color: rgb(17, 162, 183);
+        background-color: white;
+      }
+      &__btn:hover {
+        color: white;
+        background-color: rgb(17, 162, 183);
+      }
+    }
   }
 }

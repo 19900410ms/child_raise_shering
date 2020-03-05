@@ -29,12 +29,14 @@
         @include form-buttons;
         margin: 20px auto 10px;
         display: block;
+        color: rgb(17, 162, 183);
+        background-color: white;
         font-size: 15px;
         transition: .7s;
       }
       &__update:hover {
-        color: rgb(17, 162, 183);
-        background-color: white;
+        color: white;
+        background-color: rgb(17, 162, 183);
       }
       #user_prefecture_id {
         @include input-form;
