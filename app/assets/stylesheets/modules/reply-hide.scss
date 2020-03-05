@@ -42,14 +42,19 @@
     height: 40px;
     width: 20%;
   }
-  input {
+  #accept_hide {
+    width: auto;
+    display: block;
+    margin: 35px auto;
+  }
+  .edit_accept__delete, input {
     @include form-buttons;
     display: block;
     margin: 35px auto;
     color: rgb(17, 162, 183);
     background-color: white;
   }
-  input:hover {
+  .edit_accept__delete:hover, input:hover {
     color: white;
     background-color: rgb(17, 162, 183);
   }

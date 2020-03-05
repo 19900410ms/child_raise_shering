@@ -15,7 +15,7 @@
     </div>
   </div>
   <%= form_for @accept do |f|%>
-    <%= f.text_field :hide, value: :"上記の受付を削除する" %>
-    <%= f.submit "削除", data: {confirm: "下記の受付を削除してもよろしいですか？"} %>
+    <%= f.select :hide, ["上記の受付を削除する"] %>
+    <%= f.submit "削除", data: {confirm: "下記の受付を削除してもよろしいですか？"}, class: :"edit_accept__delete" %>
   <% end %>
 </div>
