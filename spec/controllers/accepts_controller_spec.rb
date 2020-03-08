@@ -4,6 +4,28 @@ describe AcceptsController do
 
   let(:user)     { create(:user) }
   let(:accept)   { create(:accept) }
+
+  describe "#show" do
+
+    context 'log in' do
+      before do
+        login user
+      end
+
+      it "renders the :show template" do
+        get :show, params: {id: accept}
+        expect(response).to render_template :show
+      end
+    end
+
+    context 'not log in' do
+      it 'redirects to new_session_path' do
+        get :show, params: {id: accept}
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+
+  end
   
   describe "#new" do
 
@@ -65,6 +87,28 @@ describe AcceptsController do
     context 'not log in' do
       it 'redirects to new_session_path' do
         get :search
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+
+  end
+
+  describe "#hide" do
+
+    context 'log in' do
+      before do
+        login user
+      end
+
+      it "renders the :hide template" do
+        get :hide, params: {id: accept}
+        expect(response).to render_template :hide
+      end
+    end
+
+    context 'not log in' do
+      it 'redirects to new_session_path' do
+        get :hide, params: {id: accept}
         expect(response).to redirect_to new_user_session_path
       end
     end
