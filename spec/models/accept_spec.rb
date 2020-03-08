@@ -25,6 +25,24 @@ describe Accept do
       expect(accept.errors[:capacity]).to include("can't be blank")
     end
 
+    #預かり可能年齢が空白でも登録可能
+    it "is valid without a age_range" do
+      accept = build(:accept, age_range: nil)
+      expect(accept).to be_valid
+    end
+
+    #特記事項が空白でも登録可能
+    it "is valid without a beg" do
+      accept = build(:accept, beg: nil)
+      expect(accept).to be_valid
+    end
+
+    #hideが空白でも登録可能
+    it "is valid without a hide" do
+      accept = build(:accept, hide: nil)
+      expect(accept).to be_valid
+    end
+
   end
 
 end
