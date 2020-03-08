@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Accept do
+describe Message do
 
   describe '#create' do
 
