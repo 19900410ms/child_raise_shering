@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe AcceptsController do
 
-  let(:user)   { create(:user) }
+  let(:user)     { create(:user) }
+  let(:accept)   { create(:accept) }
   
   describe "#new" do
 
@@ -70,19 +71,26 @@ describe AcceptsController do
 
   end
 
-  # describe "#edit" do
+  describe "#edit" do
 
-  #   context 'log in' do
-  #     before do
-  #       login user
-  #     end
+    context 'log in' do
+      before do
+        login user
+      end
 
-  #     it "renders the :edit template" do
-  #       accept = create(:accept)
-  #       get :edit, params: {id: accept}
-  #       expect(response).to render_template :edit
-  #     end
-  #   end
-  # end
+      it "renders the :edit template" do
+        get :edit, params: {id: accept}
+        expect(response).to render_template :edit
+      end
+    end
+
+    context 'not log in' do
+      it 'redirects to new_session_path' do
+        get :edit, params: {id: accept}
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+
+  end
 
 end

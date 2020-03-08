@@ -4,6 +4,12 @@ describe Accept do
 
   describe '#create' do
 
+    #必要項目を入力すれば登録可能
+    it "is valid with a date, time, capacity" do
+      accept = build(:accept, age_range: nil, beg: nil, hide: nil)
+      expect(accept).to be_valid
+    end
+
     #日付が空白では登録不可
     it "is invalid without a date" do
       accept = build(:accept, date: nil)
