@@ -74,4 +74,47 @@ describe RequestsController do
 
   end
 
+  describe '#create' do
+
+    context 'log in' do
+      before do
+        login user
+      end
+
+      let(:accept) { create(:accept) }
+
+      context 'can save' do
+        let(:params) { { user_id: user.id, accept_id: accept.id, request: attributes_for(:request) } }
+        subject {
+          post :create,
+          params: params
+        }
+        it 'count up request' do
+          expect{subject}.to change(Request, :count).by(1)
+        end
+      end
+
+      context 'can not save' do
+        let(:invalid_params) { { user_id: user.id, accept_id: accept.id, request: attributes_for(:request, date: nil) } }
+        subject {
+          post :create,
+          params: invalid_params
+        }
+        it 'does not count up request' do
+          expect{subject}.not_to change(Request, :count)
+        end
+      end
+    end
+
+    context 'not log in' do
+      let(:accept) { create(:accept) }
+      let(:params) { { user_id: user.id, accept_id: accept.id, request: attributes_for(:request) } }
+      it 'redirects to new_session_path' do
+        post :create, params: params
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+    
+  end
+
 end

@@ -137,4 +137,44 @@ describe AcceptsController do
 
   end
 
+  describe '#create' do
+
+    context 'log in' do
+      before do
+        login user
+      end
+
+      context 'can save' do
+        let(:params) { { user_id: user.id, accept: attributes_for(:accept) } }
+        subject {
+          post :create,
+          params: params
+        }
+        it 'count up accept' do
+          expect{subject}.to change(Accept, :count).by(1)
+        end
+      end
+
+      context 'can not save' do
+        let(:invalid_params) { { user_id: user.id, accept: attributes_for(:accept, date: nil) } }
+        subject {
+          post :create,
+          params: invalid_params
+        }
+        it 'does not count up accept' do
+          expect{subject}.not_to change(Accept, :count)
+        end
+      end
+    end
+
+    context 'not log in' do
+      let(:params) { { user_id: user.id, accept: attributes_for(:accept) } }
+      it 'redirects to new_session_path' do
+        post :create, params: params
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+    
+  end
+
 end
