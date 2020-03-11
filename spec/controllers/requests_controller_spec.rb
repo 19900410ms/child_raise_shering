@@ -76,12 +76,12 @@ describe RequestsController do
 
   describe '#create' do
 
+    let(:accept) { create(:accept) }
+
     context 'log in' do
       before do
         login user
       end
-
-      let(:accept) { create(:accept) }
 
       context 'can save' do
         let(:params) { { user_id: user.id, accept_id: accept.id, request: attributes_for(:request) } }
@@ -107,7 +107,6 @@ describe RequestsController do
     end
 
     context 'not log in' do
-      let(:accept) { create(:accept) }
       let(:params) { { user_id: user.id, accept_id: accept.id, request: attributes_for(:request) } }
       it 'redirects to new_session_path' do
         post :create, params: params
@@ -115,6 +114,25 @@ describe RequestsController do
       end
     end
     
+  end
+
+  describe "#destroy" do
+
+    let(:request) { create(:request) }
+
+    context 'log in' do
+      before do
+        login user
+      end
+
+      context 'can delete' do
+        it 'can delete' do
+          delete :destroy, params: {id: request}
+          expect(response.status).to eq 302
+        end
+      end
+      
+    end
   end
 
 end
