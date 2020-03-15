@@ -17,6 +17,20 @@ describe Accept do
       expect(accept.errors[:date]).to include("can't be blank")
     end
 
+    #日付が文字列では登録不可
+    it "is invalid with a date of string" do
+      accept = build(:accept, date: "サンプル")
+      accept.valid?
+      expect(accept.errors[:date]).to include("can't be blank")
+    end
+
+    #日付が数字列では登録不可
+    it "is invalid with a date of row of integer" do
+      accept = build(:accept, date: "123456789")
+      accept.valid?
+      expect(accept.errors[:date]).to include("can't be blank")
+    end
+
     #時間が空白では登録不可
     it "is invalid without a time" do
       accept = build(:accept, time: nil)

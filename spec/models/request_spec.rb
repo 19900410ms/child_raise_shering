@@ -17,6 +17,20 @@ describe Request do
       expect(request.errors[:date]).to include("can't be blank")
     end
 
+    #日付が文字列では登録不可
+    it "is invalid with a date of string" do
+      request = build(:request, date: "サンプル")
+      request.valid?
+      expect(request.errors[:date]).to include("can't be blank")
+    end
+
+    #日付が数字列では登録不可
+    it "is invalid with a date of row of integer" do
+      request = build(:request, date: "123456789")
+      request.valid?
+      expect(request.errors[:date]).to include("can't be blank")
+    end
+
     #時間が空白では登録不可
     it "is invalid without a time" do
       request = build(:request, time: nil)
