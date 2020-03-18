@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def move_to_index
-    redirect_to :root unless current_user.id == @user.id
+    redirect_to :root unless user_signed_in?
   end
 
 end
