@@ -16,9 +16,10 @@ $(window).load(function() {
   $('.offer').vegas({
     slides: [
       { src: "http://gahag.net/img/201608/05s/gahag-0113251319-1.jpg"},
+      { src: "https://www.sheknows.com/wp-content/uploads/2018/12/cool_baby_pwrap5.jpeg"},
       { src: "https://find-model.jp/insta-lab/wp-content/uploads/2019/06/kids-baby.jpg"},
-      { src: "http://farm5.staticflickr.com/4082/4851929570_5b9864d44d.jpg"},
-      { src: "https://www.air-g.co.jp/fcontents/abc//original/program_article_block_image/29/cbd5f8b4753d84968dde3ca57cfd92d7_t.jpg"}
+      { src: "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"},
+      { src: "https://www.nurseryworld.co.uk/media/91041/toddler-and-dad-kitchen-table.jpg?&width=780&quality=60"}
     ],
     animation: 'kenburns',
     //overlay: './js/overlays/02.png', //フォルダ『overlays』の中からオーバーレイのパターン画像を選択
